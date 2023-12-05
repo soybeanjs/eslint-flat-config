@@ -1,0 +1,72 @@
+{
+  "name": "@soybeanjs/eslint-config",
+  "type": "module",
+  "version": "1.0.2",
+  "packageManager": "pnpm@8.11.0",
+  "author": {
+    "name": "Soybean",
+    "email": "soybeanjs@outlook.com",
+    "url": "https://github.com/soybeanjs"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/soybeanjs/eslint-flat-config",
+  "repository": {
+    "url": "https://github.com/soybeanjs/eslint-flat-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/soybeanjs/eslint-flat-config/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "unbuild",
+    "lint": "eslint . --fix",
+    "commit": "soy git-commit",
+    "cleanup": "soy cleanup",
+    "ncu": "soy ncu",
+    "publish-pkg": "pnpm -r publish --access public",
+    "release": "soy release && pnpm publish-pkg"
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "2.3.4",
+    "@eslint/eslintrc": "2.1.4",
+    "eslint-plugin-astro": "0.30.0",
+    "eslint-plugin-format": "0.1.0",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-native": "4.1.0",
+    "eslint-plugin-react-refresh": "0.4.5",
+    "eslint-plugin-solid": "0.13.0",
+    "eslint-plugin-svelte": "2.35.1"
+  },
+  "devDependencies": {
+    "@soybeanjs/cli": "0.7.9",
+    "@soybeanjs/eslint-config": "link:",
+    "@types/eslint": "8.44.8",
+    "@types/eslint__eslintrc": "2.1.1",
+    "@types/react": "18.2.42",
+    "@types/react-dom": "18.2.17",
+    "eslint": "8.55.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "solid-js": "1.8.7",
+    "svelte": "4.2.8",
+    "typescript": "5.3.2",
+    "unbuild": "2.0.0",
+    "vue": "3.3.10"
+  }
+}
