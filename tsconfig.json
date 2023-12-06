@@ -5,12 +5,12 @@
     "lib": ["DOM", "ESNext"],
     "baseUrl": ".",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "paths": {
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
-    "types": [],
+    "types": ["node", "@eslint-types/typescript-eslint"],
     "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
@@ -18,8 +18,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true
+    "isolatedModules": true,
   },
-  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.vue"],
+  "include": ["./**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
