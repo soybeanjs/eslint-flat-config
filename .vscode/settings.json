@@ -1,7 +1,16 @@
 {
   "cSpell.words": [
     "antfu",
-    "dprint"
+    "camelcase",
+    "dprint",
+    "espree",
+    "linebreak",
+    "lockb",
+    "meriyah",
+    "nuxt",
+    "packagejson",
+    "vitepress",
+    "whitespaces"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
@@ -18,14 +27,16 @@
     "svelte",
     "astro",
     "html",
-    "markdown",
+    "css",
+    "less",
+    "scss",
     "json",
     "jsonc",
+    "json5",
     "yaml",
-    "css",
-    "html",
-    "toml",
-    "markdown"
+    "yml",
+    "markdown",
+    "toml"
   ],
   "prettier.enable": false
 }

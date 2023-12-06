@@ -1,4 +1,11 @@
+export type Awaitable<T> = T | Promise<T>;
+
 export interface PrettierRules {
+  /**
+   * Specify the line length that the printer will wrap on.
+   * @default 80
+   */
+  printWidth: number;
   /**
    * Specify the number of spaces per indentation-level.
    */
@@ -15,6 +22,11 @@ export interface PrettierRules {
    * Use single quotes instead of double quotes.
    */
   singleQuote: boolean;
+  /**
+   * Change when properties in objects are quoted.
+   * @default "as-needed"
+   */
+  quoteProps: 'as-needed' | 'consistent' | 'preserve';
   /**
    * Use single quotes in JSX.
    */
@@ -38,6 +50,11 @@ export interface PrettierRules {
    */
   jsxBracketSameLine: boolean;
   /**
+   * Include parentheses around a sole arrow function parameter.
+   * @default "always"
+   */
+  arrowParens: 'avoid' | 'always';
+  /**
    * Format only a segment of a file.
    */
   rangeStart: number;
@@ -53,34 +70,25 @@ export interface PrettierRules {
    */
   proseWrap: 'always' | 'never' | 'preserve';
   /**
-   * Include parentheses around a sole arrow function parameter.
-   * @default "always"
-   */
-  arrowParens: 'avoid' | 'always';
-  /**
-   * Provide ability to support new languages to prettier.
-   */
-  plugins: Array<string | any>;
-  /**
    * How to handle whitespaces in HTML.
    * @default "css"
    */
   htmlWhitespaceSensitivity: 'css' | 'strict' | 'ignore';
+  /**
+   * Whether or not to indent the code inside <script> and <style> tags in Vue files.
+   * @default false
+   */
+  vueIndentScriptAndStyle: boolean;
   /**
    * Which end of line characters to apply.
    * @default "lf"
    */
   endOfLine: 'auto' | 'lf' | 'crlf' | 'cr';
   /**
-   * Change when properties in objects are quoted.
-   * @default "as-needed"
+   * Control whether Prettier formats quoted code embedded in the file.
+   * @default "auto"
    */
-  quoteProps: 'as-needed' | 'consistent' | 'preserve';
-  /**
-   * Whether or not to indent the code inside <script> and <style> tags in Vue files.
-   * @default false
-   */
-  vueIndentScriptAndStyle: boolean;
+  embeddedLanguageFormatting: 'off' | 'auto';
   /**
    * Enforce single attribute per line in HTML, Vue and JSX.
    * @default false
@@ -113,6 +121,11 @@ export type PrettierParser =
   | 'vue'
   | 'yaml';
 
+export interface PrettierLanguageRules extends PrettierRules {
+  parser?: PrettierParser;
+  plugins?: string[];
+}
+
 export interface Option {
   cwd: string;
   prettier: {
@@ -136,5 +149,23 @@ export interface Option {
      * @description if true, the rules in prettierrc will override the default rules
      */
     usePrettierrc?: boolean;
+  };
+  /**
+   * @default
+   * ```json
+   * {
+   *  "html": true,
+   * "css": true,
+   * "json": true,
+   * }
+   * ```
+   */
+  formatter: {
+    html?: boolean;
+    css?: boolean;
+    json?: boolean;
+    markdown?: boolean;
+    yaml?: boolean;
+    // toml?: boolean;
   };
 }

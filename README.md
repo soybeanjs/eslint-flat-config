@@ -1,7 +1,8 @@
 # SoybeanJS's ESLint flat config presets
 
-- Based on [@antfu/eslint-config](https://github.com/antfu/eslint-config)
-- Add support ReactNative, SolidJS, Svelte, Astro.
+- Default config Lint JavaScript and TypeScript.
+- Support Vue, React, ReactNative, SolidJS, Svelte and Astro on demand.
+- Use Prettier to format JSON, JSONC, YAML, CSS, HTML, TOML, Markdown and so on.
 
 ## Usage
 
@@ -20,12 +21,13 @@ create config file "eslint.config.js"
 ```json
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false
   },
   "editor.formatOnSave": false,
   "eslint.experimental.useFlatConfig": true,
-  "eslint.validate": [ // add file types to be validated
+  "eslint.validate": [
+    // add the languages you want to lint here
     "javascript",
     "javascriptreact",
     "typescript",
@@ -34,12 +36,10 @@ create config file "eslint.config.js"
     "svelte",
     "astro",
     "html",
-    "markdown",
+    "css",
     "json",
     "jsonc",
-    "yaml",
-    "css",
-    "html",
+    "yaml"
     "toml",
     "markdown"
   ],

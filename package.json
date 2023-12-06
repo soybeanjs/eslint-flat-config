@@ -26,9 +26,7 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -37,41 +35,38 @@
     "lint": "eslint . --fix",
     "commit": "soy git-commit",
     "cleanup": "soy cleanup",
-    "ncu": "soy ncu",
+    "update-pkg": "soy ncu",
     "publish-pkg": "pnpm -r publish --access public",
     "release": "soy release && pnpm publish-pkg"
   },
   "dependencies": {
+    "@antfu/install-pkg": "0.3.1",
     "@eslint/eslintrc": "2.1.4",
     "@eslint/js": "8.55.0",
     "@typescript-eslint/eslint-plugin": "6.13.2",
     "@typescript-eslint/parser": "6.13.2",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "9.1.0",
     "eslint-define-config": "2.0.0",
+    "eslint-parser-plain": "0.1.0",
     "eslint-plugin-astro": "0.30.0",
-    "eslint-plugin-format": "0.1.0",
-    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-prettier": "5.0.1",
     "globals": "13.23.0",
-    "prettier": "4.0.0-alpha.3"
+    "local-pkg": "0.5.0",
+    "prettier": "4.0.0-alpha.3",
+    "prompts": "2.4.2"
   },
   "devDependencies": {
-    "@eslint-types/typescript-eslint": "^6.12.0",
-    "@soybeanjs/cli": "0.7.9",
+    "@eslint-types/typescript-eslint": "6.12.0",
+    "@soybeanjs/cli": "0.8.0",
     "@soybeanjs/eslint-config": "link:",
     "@types/eslint": "8.44.8",
-    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint-config-prettier": "6.11.3",
     "@types/eslint__eslintrc": "2.1.1",
     "@types/eslint__js": "8.42.3",
-    "@types/node": "^20.10.3",
-    "@types/react": "18.2.42",
-    "@types/react-dom": "18.2.17",
+    "@types/node": "20.10.3",
+    "@types/prompts": "2.4.9",
     "eslint": "8.55.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "solid-js": "1.8.7",
-    "svelte": "4.2.8",
     "typescript": "5.3.2",
-    "unbuild": "2.0.0",
-    "vue": "3.3.10"
+    "unbuild": "2.0.0"
   }
 }
