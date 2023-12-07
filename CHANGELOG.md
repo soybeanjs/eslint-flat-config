@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [v1.0.6](https://github.com/honghuangdc/eslint-flat-config/compare/v1.0.5...v1.0.6) (23-12-08)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: support vue &nbsp;-&nbsp; by @honghuangdc [<samp>(b5aa5)</samp>](https://github.com/honghuangdc/eslint-flat-config/commit/b5aa532)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.5](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.4...v1.0.5) (23-12-07)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
