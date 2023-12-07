@@ -30,6 +30,11 @@ export const GLOB_TOML = '**/*.toml';
 
 export const GLOB_PRETTIER_LINT = [GLOB_SRC, GLOB_VUE, GLOB_ASTRO, GLOB_SVELTE];
 
+export const GLOB_PACKAGE_JSON = '**/package.json';
+
+export const GLOB_TS_CONFIG = '**/tsconfig.json';
+export const GLOB_TS_OTHER_CONFIG = '**/tsconfig.*.json';
+
 export const GLOB_TESTS = [
   `**/__tests__/**/*.${GLOB_SRC_EXT}`,
   `**/*.spec.${GLOB_SRC_EXT}`,

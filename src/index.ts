@@ -1,26 +1,43 @@
+import process from 'node:process';
 import type { FlatESLintConfig } from 'eslint-define-config';
 import { DEFAULT_PRETTIER_RULES } from './constants/prettier';
-import { createIgnoreConfig } from './configs/ignore';
-import { createJsConfig } from './configs/javascript';
-import { createTsConfig } from './configs/typescript';
-import { createPrettierConfig } from './configs/prettier';
-import { createFormatterConfig } from './configs/formatter';
+import {
+  createFormatterConfig,
+  createIgnoreConfig,
+  createImportConfig,
+  createJsConfig,
+  createJsonConfig,
+  createNodeConfig,
+  createPrettierConfig,
+  createTsConfig,
+  createUnicornConfig
+} from './configs';
 import type { Option } from './types';
 
 export function defineConfig(options: Partial<Option> = {}) {
   const opts = createOptions(options);
 
   const ignore = createIgnoreConfig();
-
   const js = createJsConfig();
-
+  const json = createJsonConfig();
+  const node = createNodeConfig();
+  const imp = createImportConfig();
+  const unicorn = createUnicornConfig();
   const ts = createTsConfig();
-
   const prettier = createPrettierConfig(opts.prettier);
-
   const formatter = createFormatterConfig(opts.formatter, opts.prettier);
 
-  const configs: FlatESLintConfig[] = [...ignore, ...js, ...ts, ...formatter, ...prettier];
+  const configs: FlatESLintConfig[] = [
+    ...ignore,
+    ...js,
+    ...json,
+    ...node,
+    ...imp,
+    ...unicorn,
+    ...ts,
+    ...prettier,
+    ...formatter
+  ];
 
   return configs;
 }
@@ -34,8 +51,7 @@ function createOptions(options: Partial<Option> = {}) {
     },
     formatter: {
       html: true,
-      css: true,
-      json: true
+      css: true
     }
   };
 

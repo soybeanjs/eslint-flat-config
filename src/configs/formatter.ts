@@ -1,4 +1,5 @@
 import * as plainParser from 'eslint-parser-plain';
+import jsonParser from 'jsonc-eslint-parser';
 import prettierPlugin from 'eslint-plugin-prettier';
 import type { FlatESLintConfig } from 'eslint-define-config';
 import {
@@ -31,10 +32,12 @@ export function createFormatterConfig(options?: Option['formatter'], prettierOpt
       rules.plugins = plugins;
     }
 
+    const isJson = parser === 'json' || parser === 'json5' || parser === 'json-stringify';
+
     const config: FlatESLintConfig = {
       files,
       languageOptions: {
-        parser: plainParser
+        parser: isJson ? jsonParser : plainParser
       },
       plugins: {
         prettier: prettierPlugin

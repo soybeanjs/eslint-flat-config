@@ -37,6 +37,5 @@
     "yml",
     "markdown",
     "toml"
-  ],
-  "prettier.enable": false
+  ]
 }

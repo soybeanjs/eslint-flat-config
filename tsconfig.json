@@ -10,7 +10,7 @@
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
-    "types": ["node", "@eslint-types/typescript-eslint"],
+    "types": ["node", "@eslint-types/typescript-eslint", "@eslint-types/import", "@eslint-types/unicorn"],
     "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,

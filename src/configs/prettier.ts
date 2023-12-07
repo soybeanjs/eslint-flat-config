@@ -1,3 +1,4 @@
+import { createRequire } from 'node:module';
 import prettierPlugin from 'eslint-plugin-prettier';
 import prettierRules from 'eslint-config-prettier';
 import type { FlatESLintConfig } from 'eslint-define-config';
@@ -8,6 +9,13 @@ const { rules: eslintRules } = prettierRules;
 
 export function createPrettierConfig(options?: Option['prettier']) {
   const { rules = {}, usePrettierrc = true } = options || {};
+
+  if (!rules.plugins?.length) {
+    rules.plugins = [];
+  }
+
+  const require = createRequire(import.meta.url);
+  rules.plugins.push(require.resolve('prettier-plugin-jsdoc'));
 
   const configs: FlatESLintConfig[] = [
     {
