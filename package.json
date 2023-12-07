@@ -36,9 +36,10 @@
     "commit": "soy git-commit",
     "cleanup": "soy cleanup",
     "update-pkg": "soy ncu",
+    "typecheck": "tsc --noEmit --skipLibCheck",
     "publish-pkg": "pnpm -r publish --access public",
     "release": "soy release && pnpm publish-pkg",
-    "prepare": "pnpm build"
+    "prepare": "pnpm build && simple-git-hooks"
   },
   "dependencies": {
     "@antfu/install-pkg": "0.3.1",
@@ -74,7 +75,16 @@
     "@types/node": "20.10.3",
     "@types/prompts": "2.4.9",
     "eslint": "8.55.0",
+    "lint-staged": "15.2.0",
+    "simple-git-hooks": "2.9.0",
     "typescript": "5.3.2",
     "unbuild": "2.0.0"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "pnpm soy git-commit-verify",
+    "pre-commit": "pnpm typecheck && pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
