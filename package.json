@@ -1,7 +1,7 @@
 {
   "name": "@soybeanjs/eslint-config",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "packageManager": "pnpm@8.11.0",
   "author": {
     "name": "Soybean",
@@ -26,7 +26,9 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
