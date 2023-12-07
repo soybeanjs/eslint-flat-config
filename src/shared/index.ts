@@ -1,6 +1,8 @@
 import process from 'node:process';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
 import { isPackageExists } from 'local-pkg';
-import type { Awaitable } from '../types';
+import type { Awaitable, PrettierLanguageRules } from '../types';
 
 export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { default: infer U } ? U : T> {
   const resolved = await m;
@@ -31,4 +33,16 @@ export async function ensurePackages(packages: string[]) {
     const { installPackage } = await import('@antfu/install-pkg');
     await installPackage(nonExistingPackages, { dev: true });
   }
+}
+
+export async function loadPrettierConfig(cwd: string) {
+  let prettierConfig: Partial<PrettierLanguageRules> = {};
+
+  try {
+    const prettierrc = await readFile(path.join(cwd, '.prettierrc'), 'utf-8');
+
+    prettierConfig = JSON.parse(prettierrc);
+  } catch {}
+
+  return prettierConfig;
 }

@@ -3,13 +3,11 @@ import prettierPlugin from 'eslint-plugin-prettier';
 import prettierRules from 'eslint-config-prettier';
 import type { FlatESLintConfig } from 'eslint-define-config';
 import { GLOB_PRETTIER_LINT } from '../constants/glob';
-import type { Option } from '../types';
+import type { PrettierLanguageRules } from '../types';
 
 const { rules: eslintRules } = prettierRules;
 
-export function createPrettierConfig(options?: Option['prettier']) {
-  const { rules = {}, usePrettierrc = true } = options || {};
-
+export function createPrettierConfig(rules: Partial<PrettierLanguageRules>) {
   if (!rules.plugins?.length) {
     rules.plugins = [];
   }
@@ -25,7 +23,7 @@ export function createPrettierConfig(options?: Option['prettier']) {
       },
       rules: {
         ...eslintRules,
-        'prettier/prettier': ['warn', rules, { usePrettierrc }],
+        'prettier/prettier': ['warn', rules],
         'arrow-body-style': 'off',
         'prefer-arrow-callback': 'off'
       }

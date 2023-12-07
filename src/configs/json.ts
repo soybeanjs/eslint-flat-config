@@ -1,14 +1,7 @@
 import pluginJson from 'eslint-plugin-jsonc';
 import jsonParser from 'jsonc-eslint-parser';
-import type { FlatESLintConfig, Rules } from 'eslint-define-config';
-import {
-  GLOB_JSON,
-  GLOB_JSON5,
-  GLOB_JSONC,
-  GLOB_PACKAGE_JSON,
-  GLOB_TS_CONFIG,
-  GLOB_TS_OTHER_CONFIG
-} from '../constants/glob';
+import type { FlatESLintConfig } from 'eslint-define-config';
+import { GLOB_PACKAGE_JSON, GLOB_TS_CONFIG, GLOB_TS_OTHER_CONFIG } from '../constants/glob';
 
 export function createJsonConfig() {
   const packageJson = createSortPackageJson();
@@ -16,15 +9,12 @@ export function createJsonConfig() {
 
   const configs: FlatESLintConfig[] = [
     {
-      files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
+      files: [GLOB_PACKAGE_JSON, GLOB_TS_CONFIG, GLOB_TS_OTHER_CONFIG],
       languageOptions: {
         parser: jsonParser
       },
       plugins: {
         jsonc: pluginJson as any
-      },
-      rules: {
-        ...(pluginJson.configs['recommended-with-jsonc'].rules as unknown as Rules)
       }
     },
     packageJson,

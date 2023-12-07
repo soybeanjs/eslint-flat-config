@@ -124,32 +124,33 @@ export interface PrettierLanguageRules extends PrettierRules, Partial<JsdocOptio
 }
 
 export interface Option {
+  /**
+   * The current working directory
+   *
+   * @default process.cwd()
+   */
   cwd: string;
-  prettier: {
-    /**
-     * Default prettier rules
-     *
-     * @default
-     * ```json
-     * {
-     *   "printWidth": 120,
-     *   "singleQuote": true,
-     *   "trailingComma": "none",
-     *   "arrowParens": "avoid",
-     *   "htmlWhitespaceSensitivity": "ignore"
-     * }
-     * ```
-     */
-    rules?: Partial<PrettierLanguageRules>;
-    /**
-     * Whether to use prettierrc
-     *
-     * If true, the rules in prettierrc will override the default rules
-     *
-     * @default true
-     */
-    usePrettierrc?: boolean;
-  };
+  /**
+   * Default prettier rules
+   *
+   * @default
+   * ```json
+   * {
+   *   "printWidth": 120,
+   *   "singleQuote": true,
+   *   "trailingComma": "none",
+   *   "arrowParens": "avoid",
+   *   "htmlWhitespaceSensitivity": "ignore"
+   * }
+   * ```
+   */
+  prettierRules: Partial<PrettierLanguageRules>;
+  /**
+   * Whether to use prettierrc
+   *
+   * If true, the rules in prettierrc will override the default rules
+   */
+  usePrettierrc: boolean;
   /**
    * @default
    * {
@@ -166,4 +167,6 @@ export interface Option {
     yaml?: boolean;
     // toml?: boolean;
   };
+  /** The globs to ignore lint */
+  ignores: string[];
 }

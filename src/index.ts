@@ -12,20 +12,23 @@ import {
   createTsConfig,
   createUnicornConfig
 } from './configs';
-import type { Option } from './types';
+import { loadPrettierConfig } from './shared';
+import type { Awaitable, Option } from './types';
 
-export function defineConfig(options: Partial<Option> = {}) {
-  const opts = createOptions(options);
+export async function defineConfig(options: Partial<Option> = {}, ...userConfigs: Awaitable<FlatESLintConfig>[]) {
+  const opts = await createOptions(options);
 
-  const ignore = createIgnoreConfig();
+  const ignore = createIgnoreConfig(options.ignores);
   const js = createJsConfig();
   const json = createJsonConfig();
   const node = createNodeConfig();
   const imp = createImportConfig();
   const unicorn = createUnicornConfig();
   const ts = createTsConfig();
-  const prettier = createPrettierConfig(opts.prettier);
-  const formatter = createFormatterConfig(opts.formatter, opts.prettier);
+  const prettier = createPrettierConfig(opts.prettierRules);
+  const formatter = createFormatterConfig(opts.formatter, opts.prettierRules);
+
+  const userResolved = await Promise.all(userConfigs);
 
   const configs: FlatESLintConfig[] = [
     ...ignore,
@@ -35,6 +38,7 @@ export function defineConfig(options: Partial<Option> = {}) {
     ...imp,
     ...unicorn,
     ...ts,
+    ...userResolved,
     ...prettier,
     ...formatter
   ];
@@ -42,31 +46,38 @@ export function defineConfig(options: Partial<Option> = {}) {
   return configs;
 }
 
-function createOptions(options: Partial<Option> = {}) {
+async function createOptions(options: Partial<Option> = {}) {
   const opts: Option = {
     cwd: process.cwd(),
-    prettier: {
-      rules: DEFAULT_PRETTIER_RULES,
-      usePrettierrc: true
+    prettierRules: {
+      ...DEFAULT_PRETTIER_RULES
     },
+    usePrettierrc: true,
     formatter: {
       html: true,
-      css: true
-    }
+      css: true,
+      json: true
+    },
+    ignores: []
   };
 
-  const { cwd, prettier, formatter } = options;
+  const { cwd, prettierRules, usePrettierrc, formatter } = options;
 
   if (cwd) {
     opts.cwd = cwd;
   }
 
-  if (prettier?.rules) {
-    Object.assign(opts.prettier.rules!, prettier.rules);
+  if (prettierRules) {
+    opts.prettierRules = prettierRules;
   }
 
-  if (prettier?.usePrettierrc !== undefined) {
-    opts.prettier.usePrettierrc = prettier.usePrettierrc;
+  if (usePrettierrc !== undefined) {
+    opts.usePrettierrc = usePrettierrc;
+  }
+
+  if (opts.usePrettierrc) {
+    const prettierConfig = await loadPrettierConfig(opts.cwd);
+    Object.assign(opts.prettierRules, prettierConfig);
   }
 
   if (formatter) {

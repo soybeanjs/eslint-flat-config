@@ -26,9 +26,7 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -59,7 +57,7 @@
     "globals": "13.23.0",
     "jsonc-eslint-parser": "2.4.0",
     "local-pkg": "0.5.0",
-    "prettier": "3.1.0",
+    "prettier": "4.0.0-alpha.3",
     "prettier-plugin-jsdoc": "1.1.1",
     "prompts": "2.4.2"
   },

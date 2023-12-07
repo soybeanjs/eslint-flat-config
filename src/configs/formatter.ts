@@ -17,12 +17,13 @@ import {
 
 import type { Option, PrettierLanguageRules, PrettierParser } from '../types';
 
-export function createFormatterConfig(options?: Option['formatter'], prettierOptions: Option['prettier'] = {}) {
+export function createFormatterConfig(
+  options?: Option['formatter'],
+  prettierRules: Partial<PrettierLanguageRules> = {}
+) {
   const { html = true, css = true, json = true, markdown, yaml } = options || {};
 
   function createPrettierFormatter(files: string[], parser: PrettierParser, plugins?: string[]) {
-    const { rules: prettierRules, usePrettierrc } = prettierOptions;
-
     const rules: Partial<PrettierLanguageRules> = {
       ...prettierRules,
       parser
@@ -43,7 +44,7 @@ export function createFormatterConfig(options?: Option['formatter'], prettierOpt
         prettier: prettierPlugin
       },
       rules: {
-        'prettier/prettier': ['warn', rules, { usePrettierrc }]
+        'prettier/prettier': ['warn', rules]
       }
     };
 
