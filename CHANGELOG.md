@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [v1.0.5](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.4...v1.0.5) (23-12-07)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: enable use prettierrc, add option ignore, userConfig &nbsp;-&nbsp; by @honghuangdc [<samp>(20777)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/207773b)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **projects**: add simple-git-hooks, lint-staged &nbsp;-&nbsp; by @honghuangdc [<samp>(ccb51)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/ccb5172)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.4](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.3...v1.0.4) (23-12-07)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
