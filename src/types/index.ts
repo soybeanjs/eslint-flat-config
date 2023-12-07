@@ -123,13 +123,31 @@ export interface PrettierLanguageRules extends PrettierRules, Partial<JsdocOptio
   plugins?: string[];
 }
 
-export interface Option {
+export type LintJSFramework = 'vue' | 'react' | 'react-native' | 'solid' | 'svelte' | 'astro';
+
+export interface VueOption {
+  /**
+   * The vue version
+   *
+   * @default 3
+   */
+  version?: 2 | 3;
+}
+
+type LintJSFrameworkOption = {
+  /** If true, the default vue version is 3 */
+  vue?: boolean | VueOption;
+} & Partial<Record<LintJSFramework, boolean | unknown>>;
+
+export interface Option extends LintJSFrameworkOption {
   /**
    * The current working directory
    *
    * @default process.cwd()
    */
   cwd: string;
+  /** The globs to ignore lint */
+  ignores: string[];
   /**
    * Default prettier rules
    *
@@ -167,6 +185,4 @@ export interface Option {
     yaml?: boolean;
     // toml?: boolean;
   };
-  /** The globs to ignore lint */
-  ignores: string[];
 }

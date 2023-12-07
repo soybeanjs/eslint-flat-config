@@ -5,5 +5,6 @@ export * from './node';
 export * from './import';
 export * from './unicorn';
 export * from './typescript';
+export * from './vue';
 export * from './prettier';
 export * from './formatter';

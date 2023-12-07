@@ -41,6 +41,20 @@
     "release": "soy release && pnpm publish-pkg",
     "prepare": "pnpm build && simple-git-hooks"
   },
+  "peerDependencies": {
+    "eslint": ">=8.40.0",
+    "eslint-plugin-vue": ">=9.0.0",
+    "typescript": ">=5.0.0",
+    "vue-eslint-parser": ">=9.0.0"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-vue": {
+      "optional": true
+    },
+    "vue-eslint-parser": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@antfu/install-pkg": "0.3.1",
     "@eslint/eslintrc": "2.1.4",
@@ -75,10 +89,12 @@
     "@types/node": "20.10.3",
     "@types/prompts": "2.4.9",
     "eslint": "8.55.0",
+    "eslint-plugin-vue": "^9.19.2",
     "lint-staged": "15.2.0",
     "simple-git-hooks": "2.9.0",
     "typescript": "5.3.2",
-    "unbuild": "2.0.0"
+    "unbuild": "2.0.0",
+    "vue": "^3.3.10"
   },
   "simple-git-hooks": {
     "commit-msg": "pnpm soy git-commit-verify",

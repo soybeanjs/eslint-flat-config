@@ -10,10 +10,11 @@ import {
   createNodeConfig,
   createPrettierConfig,
   createTsConfig,
-  createUnicornConfig
+  createUnicornConfig,
+  createVueConfig
 } from './configs';
 import { loadPrettierConfig } from './shared';
-import type { Awaitable, Option } from './types';
+import type { Awaitable, Option, VueOption } from './types';
 
 export async function defineConfig(options: Partial<Option> = {}, ...userConfigs: Awaitable<FlatESLintConfig>[]) {
   const opts = await createOptions(options);
@@ -25,9 +26,9 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
   const imp = createImportConfig();
   const unicorn = createUnicornConfig();
   const ts = createTsConfig();
+  const vue = await getVueConfig(opts.vue);
   const prettier = createPrettierConfig(opts.prettierRules);
   const formatter = createFormatterConfig(opts.formatter, opts.prettierRules);
-
   const userResolved = await Promise.all(userConfigs);
 
   const configs: FlatESLintConfig[] = [
@@ -38,6 +39,7 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
     ...imp,
     ...unicorn,
     ...ts,
+    ...vue,
     ...userResolved,
     ...prettier,
     ...formatter
@@ -49,6 +51,7 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
 async function createOptions(options: Partial<Option> = {}) {
   const opts: Option = {
     cwd: process.cwd(),
+    ignores: [],
     prettierRules: {
       ...DEFAULT_PRETTIER_RULES
     },
@@ -57,11 +60,10 @@ async function createOptions(options: Partial<Option> = {}) {
       html: true,
       css: true,
       json: true
-    },
-    ignores: []
+    }
   };
 
-  const { cwd, prettierRules, usePrettierrc, formatter } = options;
+  const { cwd, prettierRules, usePrettierrc, formatter, ...rest } = options;
 
   if (cwd) {
     opts.cwd = cwd;
@@ -84,7 +86,24 @@ async function createOptions(options: Partial<Option> = {}) {
     Object.assign(opts.formatter, formatter);
   }
 
+  Object.assign(opts, rest);
+
   return opts;
+}
+
+async function getVueConfig(options?: Option['vue']) {
+  if (options) {
+    const DEFAULT_VUE_OPTION: VueOption = {
+      version: 3
+    };
+    const vueOption = typeof options === 'boolean' ? DEFAULT_VUE_OPTION : options;
+
+    const vueConfig = await createVueConfig(vueOption);
+
+    return vueConfig;
+  }
+
+  return [];
 }
 
 export * from './types';
