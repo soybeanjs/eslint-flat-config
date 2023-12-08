@@ -1,23 +1,10 @@
 {
-  "cSpell.words": [
-    "antfu",
-    "camelcase",
-    "dprint",
-    "espree",
-    "linebreak",
-    "lockb",
-    "meriyah",
-    "nuxt",
-    "packagejson",
-    "vitepress",
-    "whitespaces"
-  ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
-  "editor.formatOnSave": false,
   "eslint.experimental.useFlatConfig": true,
+  "editor.formatOnSave": false,
   "eslint.validate": [
     "javascript",
     "javascriptreact",

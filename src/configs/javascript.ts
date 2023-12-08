@@ -7,17 +7,23 @@ export function createJsConfig() {
   const js: FlatESLintConfig[] = [
     {
       languageOptions: {
+        ecmaVersion: 2022,
         globals: {
           ...globals.browser,
           ...globals.es2021,
-          ...globals.node
+          ...globals.node,
+          document: 'readonly',
+          navigator: 'readonly',
+          window: 'readonly'
         },
         parserOptions: {
           ecmaFeatures: {
             jsx: true
           },
+          ecmaVersion: 2022,
           sourceType: 'module'
-        }
+        },
+        sourceType: 'module'
       },
       rules: {
         ...jsRules.configs.all.rules,
@@ -28,15 +34,18 @@ export function createJsConfig() {
         'func-style': 'off',
         'id-length': 'off',
         'init-declarations': 'off',
+        'line-comment-position': 'off',
         'max-classes-per-file': 'off',
         'max-lines': 'off',
         'max-lines-per-function': 'off',
         'max-statements': 'off',
+        'max-statements-per-line': 'off',
         'multiline-comment-style': 'off',
         'new-cap': ['error', { newIsCap: true, capIsNew: false, properties: true }],
         'no-console': 'warn',
         'no-duplicate-imports': 'off',
         'no-empty': ['error', { allowEmptyCatch: true }],
+        'no-inline-comments': 'off',
         'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
         'no-magic-numbers': 'off',
         'no-mixed-operators': [
@@ -137,6 +146,7 @@ export function createJsConfig() {
           }
         ],
         'prefer-destructuring': 'off',
+        'prefer-named-capture-group': 'off',
         'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
         'require-await': 'off',
         'require-unicode-regexp': 'off',
