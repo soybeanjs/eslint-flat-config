@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [v1.0.7](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.6...v1.0.7) (23-12-08)
+
+### &nbsp;&nbsp;&nbsp;🔥 Performance
+
+- **projects**: perf vue rules &nbsp;-&nbsp; by @honghuangdc [<samp>(4de5b)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/4de5b30)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.6](https://github.com/honghuangdc/eslint-flat-config/compare/v1.0.5...v1.0.6) (23-12-08)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
