@@ -1,6 +1,6 @@
 {
   "name": "@soybeanjs/eslint-config",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "module",
   "repository": {
     "url": "https://github.com/soybeanjs/eslint-flat-config.git"

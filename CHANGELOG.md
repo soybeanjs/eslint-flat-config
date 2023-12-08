@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [v1.0.8](https://github.com/honghuangdc/eslint-flat-config/compare/vue-config...v1.0.8) (23-12-09)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: support toml on demand, replace eslint-plugin-jsonc with prettier-plugin-pkg &nbsp;-&nbsp; by @honghuangdc [<samp>(4b48b)</samp>](https://github.com/honghuangdc/eslint-flat-config/commit/4b48bd0)
+
+### &nbsp;&nbsp;&nbsp;🤖 CI
+
+- **projects**: add github action &nbsp;-&nbsp; by @honghuangdc [<samp>(86d68)</samp>](https://github.com/honghuangdc/eslint-flat-config/commit/86d683d)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.7](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.6...v1.0.7) (23-12-08)
 
 ### &nbsp;&nbsp;&nbsp;🔥 Performance
