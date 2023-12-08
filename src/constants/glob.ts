@@ -68,11 +68,12 @@ export const GLOB_EXCLUDE = [
   '**/.cache',
   '**/.output',
   '**/.vite-inspect',
-
   '**/CHANGELOG*.md',
   '**/*.min.*',
   '**/LICENSE*',
   '**/__snapshots__',
   '**/auto-import?(s).d.ts',
-  '**/components.d.ts'
+  '**/components.d.ts',
+
+  '**/.github/workflows/*.yml'
 ];

@@ -34,12 +34,9 @@ export async function createFormatterConfig(
       rules.plugins = [...(rules.plugins || []), ...plugins];
     }
 
-    // const isJson = parser === 'json' || parser === 'json5' || parser === 'json-stringify';
-
     const config: FlatESLintConfig = {
       files,
       languageOptions: {
-        // parser: isJson ? jsonParser : plainParser
         parser: plainParser
       },
       plugins: {
