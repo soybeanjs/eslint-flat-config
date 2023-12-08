@@ -93,7 +93,7 @@ export interface PrettierRules {
   singleAttributePerLine: boolean;
 }
 
-export type PrettierParser =
+export type PrettierBuiltinParser =
   | 'acorn'
   | 'angular'
   | 'babel-flow'
@@ -117,6 +117,8 @@ export type PrettierParser =
   | 'typescript'
   | 'vue'
   | 'yaml';
+
+export type PrettierParser = PrettierBuiltinParser | 'jsdoc-parser' | 'toml';
 
 export interface PrettierLanguageRules extends PrettierRules, Partial<JsdocOptions> {
   parser?: PrettierParser;
@@ -183,6 +185,6 @@ export interface Option extends LintJSFrameworkOption {
     json?: boolean;
     markdown?: boolean;
     yaml?: boolean;
-    // toml?: boolean;
+    toml?: boolean;
   };
 }

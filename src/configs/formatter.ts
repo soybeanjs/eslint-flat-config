@@ -1,5 +1,3 @@
-import * as plainParser from 'eslint-parser-plain';
-import jsonParser from 'jsonc-eslint-parser';
 import prettierPlugin from 'eslint-plugin-prettier';
 import type { FlatESLintConfig } from 'eslint-define-config';
 import {
@@ -12,16 +10,19 @@ import {
   GLOB_MARKDOWN,
   GLOB_POSTCSS,
   GLOB_SCSS,
+  GLOB_TOML,
   GLOB_YAML
 } from '../constants/glob';
-
+import { ensurePackages, interopDefault } from '../shared';
 import type { Option, PrettierLanguageRules, PrettierParser } from '../types';
 
-export function createFormatterConfig(
+export async function createFormatterConfig(
   options?: Option['formatter'],
   prettierRules: Partial<PrettierLanguageRules> = {}
 ) {
-  const { html = true, css = true, json = true, markdown, yaml } = options || {};
+  const { html = true, css = true, json = true, markdown, yaml, toml } = options || {};
+
+  const plainParser = await interopDefault(import('eslint-parser-plain'));
 
   function createPrettierFormatter(files: string[], parser: PrettierParser, plugins?: string[]) {
     const rules: Partial<PrettierLanguageRules> = {
@@ -30,15 +31,16 @@ export function createFormatterConfig(
     };
 
     if (plugins?.length) {
-      rules.plugins = plugins;
+      rules.plugins = [...(rules.plugins || []), ...plugins];
     }
 
-    const isJson = parser === 'json' || parser === 'json5' || parser === 'json-stringify';
+    // const isJson = parser === 'json' || parser === 'json5' || parser === 'json-stringify';
 
     const config: FlatESLintConfig = {
       files,
       languageOptions: {
-        parser: isJson ? jsonParser : plainParser
+        // parser: isJson ? jsonParser : plainParser
+        parser: plainParser
       },
       plugins: {
         prettier: prettierPlugin
@@ -67,7 +69,7 @@ export function createFormatterConfig(
   }
 
   if (json) {
-    const jsonConfig = createPrettierFormatter([GLOB_JSON, GLOB_JSONC], 'json');
+    const jsonConfig = createPrettierFormatter([GLOB_JSON, GLOB_JSONC], 'json-stringify', ['prettier-plugin-pkg']);
     const json5Config = createPrettierFormatter([GLOB_JSON5], 'json5');
     configs.push(jsonConfig, json5Config);
   }
@@ -80,6 +82,14 @@ export function createFormatterConfig(
   if (yaml) {
     const yamlConfig = createPrettierFormatter([GLOB_YAML], 'yaml');
     configs.push(yamlConfig);
+  }
+
+  if (toml) {
+    await ensurePackages(['prettier-plugin-toml']);
+
+    const tomlConfig = createPrettierFormatter([GLOB_TOML], 'toml', ['prettier-plugin-toml']);
+
+    configs.push(tomlConfig);
   }
 
   return configs;

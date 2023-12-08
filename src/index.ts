@@ -6,7 +6,6 @@ import {
   createIgnoreConfig,
   createImportConfig,
   createJsConfig,
-  createJsonConfig,
   createNodeConfig,
   createPrettierConfig,
   createTsConfig,
@@ -21,20 +20,20 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
 
   const ignore = createIgnoreConfig(options.ignores);
   const js = createJsConfig();
-  const json = createJsonConfig();
+  // const json = createJsonConfig();
   const node = createNodeConfig();
   const imp = createImportConfig();
   const unicorn = createUnicornConfig();
   const ts = createTsConfig();
   const vue = await getVueConfig(opts.vue);
   const prettier = createPrettierConfig(opts.prettierRules);
-  const formatter = createFormatterConfig(opts.formatter, opts.prettierRules);
+  const formatter = await createFormatterConfig(opts.formatter, opts.prettierRules);
   const userResolved = await Promise.all(userConfigs);
 
   const configs: FlatESLintConfig[] = [
     ...ignore,
     ...js,
-    ...json,
+    // ...json,
     ...node,
     ...imp,
     ...unicorn,

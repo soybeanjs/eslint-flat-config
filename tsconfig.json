@@ -2,15 +2,25 @@
   "compilerOptions": {
     "target": "ESNext",
     "jsx": "preserve",
-    "lib": ["DOM", "ESNext"],
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "resolveJsonModule": true,
-    "types": ["node", "@eslint-types/typescript-eslint", "@eslint-types/import", "@eslint-types/unicorn"],
+    "types": [
+      "node",
+      "@eslint-types/typescript-eslint",
+      "@eslint-types/import",
+      "@eslint-types/unicorn"
+    ],
     "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
@@ -20,6 +30,11 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

@@ -1,7 +1,7 @@
 import { defineConfig } from '@soybeanjs/eslint-config';
 
 export default defineConfig(
-  { vue: true, formatter: { markdown: true, yaml: true } },
+  { vue: true, formatter: { markdown: true, yaml: true, toml: true } },
   {
     rules: {
       'vue/multi-word-component-names': [
