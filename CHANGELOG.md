@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [v1.0.9](https://github.com/honghuangdc/eslint-flat-config/compare/v1.0.8...v1.0.9) (23-12-09)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: add prettier-plugin-json-sort &nbsp;-&nbsp; by @honghuangdc [<samp>(2a4cf)</samp>](https://github.com/honghuangdc/eslint-flat-config/commit/2a4cf98)
+
+### &nbsp;&nbsp;&nbsp;🤖 CI
+
+- **projects**: add pnpm install --no-frozen-lockfile &nbsp;-&nbsp; by @honghuangdc [<samp>(ff5f8)</samp>](https://github.com/honghuangdc/eslint-flat-config/commit/ff5f84c)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.8](https://github.com/honghuangdc/eslint-flat-config/compare/vue-config...v1.0.8) (23-12-09)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
