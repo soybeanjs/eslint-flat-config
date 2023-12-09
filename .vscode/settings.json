@@ -5,15 +5,7 @@
   },
   "eslint.experimental.useFlatConfig": true,
   "editor.formatOnSave": false,
-  "[json]": {
-    "editor.formatOnSave": false
-  },
   "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue",
     "svelte",
     "astro",
     "html",
@@ -22,7 +14,6 @@
     "scss",
     "json",
     "jsonc",
-    "json5",
     "yaml",
     "yml",
     "markdown",
