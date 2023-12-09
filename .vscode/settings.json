@@ -5,6 +5,9 @@
   },
   "eslint.experimental.useFlatConfig": true,
   "editor.formatOnSave": false,
+  "[json]": {
+    "editor.formatOnSave": false
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -24,5 +27,6 @@
     "yml",
     "markdown",
     "toml"
-  ]
+  ],
+  "prettier.enable": false
 }

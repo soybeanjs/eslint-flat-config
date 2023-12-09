@@ -20,7 +20,6 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
 
   const ignore = createIgnoreConfig(options.ignores);
   const js = createJsConfig();
-  // const json = createJsonConfig();
   const node = createNodeConfig();
   const imp = createImportConfig();
   const unicorn = createUnicornConfig();
@@ -33,7 +32,6 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
   const configs: FlatESLintConfig[] = [
     ...ignore,
     ...js,
-    // ...json,
     ...node,
     ...imp,
     ...unicorn,

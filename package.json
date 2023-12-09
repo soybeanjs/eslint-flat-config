@@ -1,23 +1,24 @@
 {
   "name": "@soybeanjs/eslint-config",
-  "version": "1.0.8",
   "type": "module",
-  "repository": {
-    "url": "https://github.com/soybeanjs/eslint-flat-config.git"
-  },
-  "homepage": "https://github.com/soybeanjs/eslint-flat-config",
-  "bugs": {
-    "url": "https://github.com/soybeanjs/eslint-flat-config/issues"
-  },
+  "version": "1.0.8",
+  "packageManager": "pnpm@8.11.0",
   "author": {
     "name": "Soybean",
     "email": "soybeanjs@outlook.com",
     "url": "https://github.com/soybeanjs"
   },
   "license": "MIT",
-  "packageManager": "pnpm@8.11.0",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "homepage": "https://github.com/soybeanjs/eslint-flat-config",
+  "repository": {
+    "url": "https://github.com/soybeanjs/eslint-flat-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/soybeanjs/eslint-flat-config/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -25,18 +26,21 @@
       "require": "./dist/index.cjs"
     }
   },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "build": "unbuild",
+    "build": "run-s typecheck build-only build-pkg",
+    "build-only": "unbuild",
+    "build-pkg": "pnpm -r --filter='./packages/*' run build",
     "cleanup": "soy cleanup",
     "commit": "soy git-commit",
     "lint": "eslint . --fix",
     "prepare": "pnpm build && simple-git-hooks",
     "publish-pkg": "pnpm -r publish --access public",
     "release": "soy release",
+    "stub": "pnpm -r run stub",
     "typecheck": "tsc --noEmit --skipLibCheck",
     "update-pkg": "soy ncu"
   },
@@ -73,7 +77,7 @@
     "local-pkg": "0.5.0",
     "prettier": "4.0.0-alpha.3",
     "prettier-plugin-jsdoc": "1.1.1",
-    "prettier-plugin-pkg": "0.18.0",
+    "prettier-plugin-json-sort": "workspace:*",
     "prompts": "2.4.2"
   },
   "devDependencies": {
@@ -91,21 +95,20 @@
     "eslint": "8.55.0",
     "eslint-plugin-vue": "9.19.2",
     "lint-staged": "15.2.0",
+    "npm-run-all": "4.1.5",
     "prettier-plugin-toml": "2.0.1",
     "simple-git-hooks": "2.9.0",
+    "solid-js": "^1.8.7",
     "typescript": "5.3.2",
     "unbuild": "2.0.0",
     "vue": "3.3.10",
     "vue-eslint-parser": "9.3.2"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "lint-staged": {
-    "*": "eslint --fix"
-  },
   "simple-git-hooks": {
     "commit-msg": "pnpm soy git-commit-verify",
     "pre-commit": "pnpm typecheck && pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
