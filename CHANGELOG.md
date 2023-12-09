@@ -1,6 +1,24 @@
 # Changelog
 
 
+## [v1.0.10](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.9...v1.0.10) (23-12-10)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **deps**:
+  - update deps &nbsp;-&nbsp; by @honghuangdc [<samp>(9d4de)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/9d4de44)
+- **projects**:
+  - update vscode settings &nbsp;-&nbsp; by @honghuangdc [<samp>(16945)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/1694503)
+  - update prettier-plugin-json-sort & optional packages &nbsp;-&nbsp; by @honghuangdc [<samp>(05a79)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/05a7941)
+
+### &nbsp;&nbsp;&nbsp;🤖 CI
+
+- **projects**: update release.yml &nbsp;-&nbsp; by @honghuangdc [<samp>(cf94d)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/cf94dd7)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.9](https://github.com/honghuangdc/eslint-flat-config/compare/v1.0.8...v1.0.9) (23-12-09)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
