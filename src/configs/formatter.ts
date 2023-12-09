@@ -82,7 +82,7 @@ export async function createFormatterConfig(
   }
 
   if (toml) {
-    await ensurePackages(['prettier-plugin-toml']);
+    await ensurePackages(['@toml-tools/parser', 'prettier-plugin-toml']);
 
     const tomlConfig = createPrettierFormatter([GLOB_TOML], 'toml', ['prettier-plugin-toml']);
 

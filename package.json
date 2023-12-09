@@ -44,9 +44,15 @@
   },
   "peerDependencies": {
     "eslint": ">=8.40.0",
-    "typescript": ">=5.0.0"
+    "eslint-plugin-vue": ">=9.19.0",
+    "prettier-plugin-toml": ">=2.0.0",
+    "typescript": ">=5.0.0",
+    "vue-eslint-parser": ">=9.3.2"
   },
   "peerDependenciesMeta": {
+    "@toml-tools/parser": {
+      "optional": true
+    },
     "eslint-plugin-vue": {
       "optional": true
     },
@@ -61,7 +67,6 @@
     "@antfu/install-pkg": "0.3.1",
     "@eslint/eslintrc": "2.1.4",
     "@eslint/js": "8.55.0",
-    "@toml-tools/parser": "1.0.0",
     "@typescript-eslint/eslint-plugin": "6.13.2",
     "@typescript-eslint/parser": "6.13.2",
     "eslint-config-prettier": "9.1.0",
@@ -75,7 +80,7 @@
     "local-pkg": "0.5.0",
     "prettier": "3.1.0",
     "prettier-plugin-jsdoc": "1.1.1",
-    "prettier-plugin-json-sort": "0.0.1",
+    "prettier-plugin-json-sort": "0.0.2",
     "prompts": "2.4.2"
   },
   "devDependencies": {
@@ -84,6 +89,7 @@
     "@eslint-types/unicorn": "49.0.0",
     "@soybeanjs/cli": "0.8.10",
     "@soybeanjs/eslint-config": "link:",
+    "@toml-tools/parser": "1.0.0",
     "@types/eslint": "8.44.8",
     "@types/eslint-config-prettier": "6.11.3",
     "@types/eslint__eslintrc": "2.1.1",
