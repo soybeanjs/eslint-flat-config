@@ -71,8 +71,8 @@ devDependencies:
     specifier: 49.0.0
     version: 49.0.0
   '@soybeanjs/cli':
-    specifier: 1.0.0-beta.4
-    version: 1.0.0-beta.4(@toml-tools/parser@1.0.0)(@types/eslint@8.44.8)(eslint-plugin-vue@9.19.2)(eslint@8.55.0)(prettier-plugin-toml@2.0.1)(typescript@5.3.3)(vue-eslint-parser@9.3.2)
+    specifier: 1.0.0-beta.6
+    version: 1.0.0-beta.6(@toml-tools/parser@1.0.0)(@types/eslint@8.44.8)(eslint-plugin-vue@9.19.2)(eslint@8.55.0)(prettier-plugin-toml@2.0.1)(typescript@5.3.3)(vue-eslint-parser@9.3.2)
   '@toml-tools/parser':
     specifier: 1.0.0
     version: 1.0.0
@@ -110,10 +110,10 @@ devDependencies:
     specifier: 2.9.0
     version: 2.9.0
   tsup:
-    specifier: ^8.0.1
+    specifier: 8.0.1
     version: 8.0.1(typescript@5.3.3)
   tsx:
-    specifier: ^4.6.2
+    specifier: 4.6.2
     version: 4.6.2
   typescript:
     specifier: 5.3.3
@@ -1026,8 +1026,8 @@ packages:
       - vue-eslint-parser
     dev: true
 
-  /@soybeanjs/cli@1.0.0-beta.4(@toml-tools/parser@1.0.0)(@types/eslint@8.44.8)(eslint-plugin-vue@9.19.2)(eslint@8.55.0)(prettier-plugin-toml@2.0.1)(typescript@5.3.3)(vue-eslint-parser@9.3.2):
-    resolution: {integrity: sha512-DrctxYolfHHgM5gThn2lrhgD90xTB23TLP7UiEgcpbJ/8l14UJvKoELzLRlHEpni+Vqo2ANCrzoqvkRHxTcdYA==}
+  /@soybeanjs/cli@1.0.0-beta.6(@toml-tools/parser@1.0.0)(@types/eslint@8.44.8)(eslint-plugin-vue@9.19.2)(eslint@8.55.0)(prettier-plugin-toml@2.0.1)(typescript@5.3.3)(vue-eslint-parser@9.3.2):
+    resolution: {integrity: sha512-VEqeUMsPWCdeJUomcXFUC+DvcLsVRnevwhZhUjkGFT3Spl0aGs0bTP8VuqKg0bR1DctH+ez4Lr7EYNVZJgY+7Q==}
     hasBin: true
     dependencies:
       '@soybeanjs/changelog': 0.3.8(@toml-tools/parser@1.0.0)(@types/eslint@8.44.8)(eslint-plugin-vue@9.19.2)(eslint@8.55.0)(prettier-plugin-toml@2.0.1)(typescript@5.3.3)(vue-eslint-parser@9.3.2)
