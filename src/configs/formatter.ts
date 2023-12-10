@@ -1,4 +1,3 @@
-import prettierPlugin from 'eslint-plugin-prettier';
 import type { FlatESLintConfig } from 'eslint-define-config';
 import {
   GLOB_CSS,
@@ -22,7 +21,10 @@ export async function createFormatterConfig(
 ) {
   const { html = true, css = true, json = true, markdown, yaml, toml } = options || {};
 
-  const plainParser = await interopDefault(import('eslint-parser-plain'));
+  const [pluginPrettier, parserPlain] = await Promise.all([
+    interopDefault(import('eslint-plugin-prettier')),
+    interopDefault(import('eslint-parser-plain'))
+  ]);
 
   function createPrettierFormatter(files: string[], parser: PrettierParser, plugins?: string[]) {
     const rules: Partial<PrettierLanguageRules> = {
@@ -37,10 +39,10 @@ export async function createFormatterConfig(
     const config: FlatESLintConfig = {
       files,
       languageOptions: {
-        parser: plainParser
+        parser: parserPlain
       },
       plugins: {
-        prettier: prettierPlugin
+        prettier: pluginPrettier
       },
       rules: {
         'prettier/prettier': ['warn', rules]

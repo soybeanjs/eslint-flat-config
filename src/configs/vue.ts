@@ -2,7 +2,7 @@ import type { FlatESLintConfig } from 'eslint-define-config';
 import { ensurePackages, interopDefault } from '../shared';
 import { GLOB_VUE } from '../constants/glob';
 import type { VueOption } from '../types';
-import { tsRules } from './typescript';
+import { createTsRules } from './typescript';
 
 export async function createVueConfig(options: VueOption) {
   await ensurePackages(['eslint-plugin-vue', 'vue-eslint-parser']);
@@ -14,6 +14,8 @@ export async function createVueConfig(options: VueOption) {
     interopDefault(import('vue-eslint-parser')),
     interopDefault(import('@typescript-eslint/eslint-plugin'))
   ]);
+
+  const tsRules = await createTsRules();
 
   const configKeys: VueConfigKey[] =
     options.version === 3

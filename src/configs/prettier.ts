@@ -1,12 +1,14 @@
-import prettierPlugin from 'eslint-plugin-prettier';
 import prettierRules from 'eslint-config-prettier';
 import type { FlatESLintConfig } from 'eslint-define-config';
 import { GLOB_PRETTIER_LINT } from '../constants/glob';
+import { interopDefault } from '../shared';
 import type { PrettierLanguageRules } from '../types';
 
 const { rules: eslintRules } = prettierRules;
 
-export function createPrettierConfig(rules: Partial<PrettierLanguageRules>) {
+export async function createPrettierConfig(rules: Partial<PrettierLanguageRules>) {
+  const pluginPrettier = await interopDefault(import('eslint-plugin-prettier'));
+
   const { plugins = [] } = rules;
 
   const pRules: Partial<PrettierLanguageRules> = {
@@ -18,7 +20,7 @@ export function createPrettierConfig(rules: Partial<PrettierLanguageRules>) {
     {
       files: GLOB_PRETTIER_LINT,
       plugins: {
-        prettier: prettierPlugin
+        prettier: pluginPrettier
       },
       rules: {
         ...eslintRules,

@@ -1,7 +1,9 @@
-import pluginUnicorn from 'eslint-plugin-unicorn';
 import type { FlatESLintConfig } from 'eslint-define-config';
+import { interopDefault } from '../shared';
 
-export function createUnicornConfig() {
+export async function createUnicornConfig() {
+  const pluginUnicorn = await interopDefault(import('eslint-plugin-unicorn'));
+
   const configs: FlatESLintConfig[] = [
     {
       plugins: {

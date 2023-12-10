@@ -20,12 +20,12 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
 
   const ignore = createIgnoreConfig(options.ignores);
   const js = createJsConfig();
-  const node = createNodeConfig();
-  const imp = createImportConfig();
-  const unicorn = createUnicornConfig();
-  const ts = createTsConfig();
+  const node = await createNodeConfig();
+  const imp = await createImportConfig();
+  const unicorn = await createUnicornConfig();
+  const ts = await createTsConfig();
   const vue = await getVueConfig(opts.vue);
-  const prettier = createPrettierConfig(opts.prettierRules);
+  const prettier = await createPrettierConfig(opts.prettierRules);
   const formatter = await createFormatterConfig(opts.formatter, opts.prettierRules);
   const userResolved = await Promise.all(userConfigs);
 

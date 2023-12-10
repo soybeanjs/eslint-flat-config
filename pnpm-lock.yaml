@@ -73,9 +73,6 @@ devDependencies:
   '@soybeanjs/cli':
     specifier: 1.0.0-beta.0
     version: 1.0.0-beta.0
-  '@soybeanjs/eslint-config':
-    specifier: 'link:'
-    version: 'link:'
   '@toml-tools/parser':
     specifier: 1.0.0
     version: 1.0.0
