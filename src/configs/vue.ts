@@ -106,13 +106,6 @@ export async function createVueConfig(options: VueOption) {
             useAttrs: 'attrs'
           }
         ],
-        'vue/v-on-handler-style': [
-          'warn',
-          ['method', 'inline-function'],
-          {
-            ignoreIncludesComment: false
-          }
-        ],
         'vue/valid-define-options': 'warn'
       }
     }
