@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [v1.0.11](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.10...v1.0.11) (23-12-10)
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **projects**: fix rules &nbsp;-&nbsp; by @honghuangdc [<samp>(4bbc2)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/4bbc2ec)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.10](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.9...v1.0.10) (23-12-10)
 
 ### &nbsp;&nbsp;&nbsp;🏡 Chore
