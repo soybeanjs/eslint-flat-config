@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [v1.0.13-beta.1](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.13-beta.0...v1.0.13-beta.1) (23-12-11)
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **projects**: fix export &nbsp;-&nbsp; by @honghuangdc [<samp>(58a35)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/58a35a3)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.13-beta.0](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.12...v1.0.13-beta.0) (23-12-11)
 
 ### &nbsp;&nbsp;&nbsp;💅 Refactors
