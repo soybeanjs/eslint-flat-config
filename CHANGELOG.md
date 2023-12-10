@@ -1,6 +1,22 @@
 # Changelog
 
 
+## [v1.0.13-beta.0](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.12...v1.0.13-beta.0) (23-12-11)
+
+### &nbsp;&nbsp;&nbsp;💅 Refactors
+
+- **projects**: use tsup replace unbuild &nbsp;-&nbsp; by @honghuangdc [<samp>(05002)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/0500278)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **deps**:
+  - update deps &nbsp;-&nbsp; by @honghuangdc [<samp>(4d352)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/4d3522a)
+  - update deps &nbsp;-&nbsp; by @honghuangdc [<samp>(4acba)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/4acba24)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.12](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.11...v1.0.12) (23-12-11)
 
 ### &nbsp;&nbsp;&nbsp;🔥 Performance
