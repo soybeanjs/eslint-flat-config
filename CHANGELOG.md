@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [v1.1.0-beta.2](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0-beta.1...v1.1.0-beta.2) (23-12-11)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**:
+  - add react demo file &nbsp;-&nbsp; by @honghuangdc [<samp>(e1324)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/e1324f9)
+  - add solid support &nbsp;-&nbsp; by @honghuangdc [<samp>(ed899)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/ed89931)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.0-beta.1](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0-beta.0...v1.1.0-beta.1) (23-12-11)
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
