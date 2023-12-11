@@ -2,6 +2,7 @@ import process from 'node:process';
 import type { FlatESLintConfig } from 'eslint-define-config';
 import { DEFAULT_PRETTIER_RULES } from './constants/prettier';
 import {
+  createAstroConfig,
   createFormatterConfig,
   createIgnoreConfig,
   createImportConfig,
@@ -10,6 +11,7 @@ import {
   createPrettierConfig,
   createReactConfig,
   createSolidConfig,
+  createSvelteConfig,
   createTsConfig,
   createUnicornConfig,
   createVueConfig
@@ -29,6 +31,8 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
   const vue = await createVueConfig(opts.vue);
   const solid = await createSolidConfig(opts.solid);
   const react = await createReactConfig(opts.react, opts['react-native']);
+  const svelte = await createSvelteConfig(opts.svelte, opts.prettierRules);
+  const astro = await createAstroConfig(opts.astro);
   const prettier = await createPrettierConfig(opts.prettierRules);
   const formatter = await createFormatterConfig(opts.formatter, opts.prettierRules);
   const userResolved = await Promise.all(userConfigs);
@@ -43,6 +47,8 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
     ...vue,
     ...react,
     ...solid,
+    ...astro,
+    ...svelte,
     ...userResolved,
     ...prettier,
     ...formatter

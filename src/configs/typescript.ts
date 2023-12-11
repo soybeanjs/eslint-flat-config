@@ -7,7 +7,8 @@ export async function createTsRules() {
   const pluginTs = await interopDefault(import('@typescript-eslint/eslint-plugin'));
 
   const tsRules: Partial<Rules> = {
-    ...pluginTs.configs['eslint-recommended'].overrides![0].rules,
+    ...pluginTs.configs.base.rules,
+    ...pluginTs.configs['eslint-recommended'].rules,
     ...pluginTs.configs.strict.rules,
     '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: false }],
     '@typescript-eslint/no-empty-interface': [

@@ -12,6 +12,7 @@ export default defineConfig(
     react: false,
     solid: true,
     svelte: true,
+    astro: true,
     formatter: {
       html: true,
       markdown: true,
