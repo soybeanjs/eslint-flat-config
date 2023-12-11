@@ -139,7 +139,7 @@ export interface VueOption {
 type LintJSFrameworkOption = {
   /** If true, the default vue version is 3 */
   vue?: boolean | VueOption;
-} & Partial<Record<LintJSFramework, boolean | unknown>>;
+} & Partial<Record<LintJSFramework, boolean>>;
 
 export interface Option extends LintJSFrameworkOption {
   /**

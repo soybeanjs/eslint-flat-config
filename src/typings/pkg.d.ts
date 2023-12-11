@@ -36,4 +36,37 @@ declare module 'eslint-plugin-vue' {
   export default plugin;
 }
 
-declare module 'vue-eslint-parser';
+declare module 'eslint-plugin-react' {
+  type ReactConfigKey = 'recommended' | 'all' | 'jsx-runtime';
+
+  const plugin: import('eslint').ESLint.Plugin & {
+    configs: Record<ReactConfigKey, import('eslint').ESLint.ConfigData>;
+  };
+
+  export default plugin;
+}
+declare module 'eslint-plugin-react-hooks' {
+  const plugin: import('eslint').ESLint.Plugin;
+
+  export default plugin;
+}
+declare module 'eslint-plugin-react-refresh' {
+  const plugin: import('eslint').ESLint.Plugin;
+
+  export default plugin;
+}
+
+declare module 'eslint-plugin-react-native' {
+  const plugin: import('eslint').ESLint.Plugin & {
+    environments: {
+      'react-native': {
+        globals: Record<string, boolean>;
+      };
+    };
+    configs: {
+      all: import('eslint').ESLint.ConfigData;
+    };
+  };
+
+  export default plugin;
+}

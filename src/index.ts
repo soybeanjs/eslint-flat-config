@@ -8,6 +8,7 @@ import {
   createJsConfig,
   createNodeConfig,
   createPrettierConfig,
+  createReactConfig,
   createTsConfig,
   createUnicornConfig,
   createVueConfig
@@ -25,6 +26,7 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
   const unicorn = await createUnicornConfig();
   const ts = await createTsConfig();
   const vue = await getVueConfig(opts.vue);
+  const react = await createReactConfig(opts.react, opts['react-native']);
   const prettier = await createPrettierConfig(opts.prettierRules);
   const formatter = await createFormatterConfig(opts.formatter, opts.prettierRules);
   const userResolved = await Promise.all(userConfigs);
@@ -37,6 +39,7 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
     ...unicorn,
     ...ts,
     ...vue,
+    ...react,
     ...userResolved,
     ...prettier,
     ...formatter
