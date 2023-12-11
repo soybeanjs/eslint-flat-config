@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [v1.1.0-beta.0](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.13...v1.1.0-beta.0) (23-12-11)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: add react config &nbsp;-&nbsp; by @honghuangdc [<samp>(49d82)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/49d8296)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.0.13-beta.1](https://github.com/soybeanjs/eslint-flat-config/compare/v1.0.13-beta.0...v1.0.13-beta.1) (23-12-11)
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
