@@ -9,12 +9,13 @@ import {
   createNodeConfig,
   createPrettierConfig,
   createReactConfig,
+  createSolidConfig,
   createTsConfig,
   createUnicornConfig,
   createVueConfig
 } from './configs';
 import { loadPrettierConfig } from './shared';
-import type { Awaitable, Option, VueOption } from './types';
+import type { Awaitable, Option } from './types';
 
 export async function defineConfig(options: Partial<Option> = {}, ...userConfigs: Awaitable<FlatESLintConfig>[]) {
   const opts = await createOptions(options);
@@ -25,7 +26,8 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
   const imp = await createImportConfig();
   const unicorn = await createUnicornConfig();
   const ts = await createTsConfig();
-  const vue = await getVueConfig(opts.vue);
+  const vue = await createVueConfig(opts.vue);
+  const solid = await createSolidConfig(opts.solid);
   const react = await createReactConfig(opts.react, opts['react-native']);
   const prettier = await createPrettierConfig(opts.prettierRules);
   const formatter = await createFormatterConfig(opts.formatter, opts.prettierRules);
@@ -40,6 +42,7 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
     ...ts,
     ...vue,
     ...react,
+    ...solid,
     ...userResolved,
     ...prettier,
     ...formatter
@@ -90,20 +93,3 @@ async function createOptions(options: Partial<Option> = {}) {
 
   return opts;
 }
-
-async function getVueConfig(options?: Option['vue']) {
-  if (options) {
-    const DEFAULT_VUE_OPTION: VueOption = {
-      version: 3
-    };
-    const vueOption = typeof options === 'boolean' ? DEFAULT_VUE_OPTION : options;
-
-    const vueConfig = await createVueConfig(vueOption);
-
-    return vueConfig;
-  }
-
-  return [];
-}
-
-export * from './types';

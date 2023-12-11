@@ -44,6 +44,11 @@
   },
   "peerDependencies": {
     "eslint": ">=8.40.0",
+    "eslint-plugin-react": ">=7.0.0",
+    "eslint-plugin-react-hooks": ">=4.0.0",
+    "eslint-plugin-react-native": ">=4.0.0",
+    "eslint-plugin-react-refresh": ">=0.4.0",
+    "eslint-plugin-solid": ">=0.10.0",
     "eslint-plugin-vue": ">=9.19.0",
     "prettier-plugin-toml": ">=2.0.0",
     "typescript": ">=5.0.0",
@@ -51,6 +56,21 @@
   },
   "peerDependenciesMeta": {
     "@toml-tools/parser": {
+      "optional": true
+    },
+    "eslint-plugin-react": {
+      "optional": true
+    },
+    "eslint-plugin-react-hooks": {
+      "optional": true
+    },
+    "eslint-plugin-react-native": {
+      "optional": true
+    },
+    "eslint-plugin-react-refresh": {
+      "optional": true
+    },
+    "eslint-plugin-solid": {
       "optional": true
     },
     "eslint-plugin-vue": {
@@ -95,19 +115,21 @@
     "@types/eslint__js": "8.42.3",
     "@types/node": "20.10.4",
     "@types/prompts": "2.4.9",
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
+    "@types/react": "18.2.43",
+    "@types/react-dom": "18.2.17",
     "eslint": "8.55.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-native": "^4.1.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-native": "4.1.0",
+    "eslint-plugin-react-refresh": "0.4.5",
+    "eslint-plugin-solid": "0.13.0",
     "eslint-plugin-vue": "9.19.2",
     "lint-staged": "15.2.0",
     "prettier-plugin-toml": "2.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "simple-git-hooks": "2.9.0",
+    "solid-js": "1.8.7",
     "tsup": "8.0.1",
     "tsx": "4.6.2",
     "typescript": "5.3.3",

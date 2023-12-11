@@ -1,10 +1,18 @@
 import type { FlatESLintConfig } from 'eslint-define-config';
 import { ensurePackages, interopDefault } from '../shared';
 import { GLOB_VUE } from '../constants/glob';
-import type { VueOption } from '../types';
+import type { Option, VueOption } from '../types';
 import { createTsRules } from './typescript';
 
-export async function createVueConfig(options: VueOption) {
+export async function createVueConfig(options?: Option['vue']) {
+  if (!options) return [];
+
+  const DEFAULT_VUE_OPTION: VueOption = {
+    version: 3
+  };
+
+  const vueOption = typeof options === 'boolean' ? DEFAULT_VUE_OPTION : options;
+
   await ensurePackages(['eslint-plugin-vue', 'vue-eslint-parser']);
 
   type VueConfigKey = import('eslint-plugin-vue').VueConfigKey;
@@ -18,7 +26,7 @@ export async function createVueConfig(options: VueOption) {
   const tsRules = await createTsRules();
 
   const configKeys: VueConfigKey[] =
-    options.version === 3
+    vueOption.version === 3
       ? ['vue3-essential', 'vue3-strongly-recommended', 'vue3-recommended']
       : ['essential', 'strongly-recommended', 'recommended'];
 

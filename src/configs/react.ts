@@ -54,7 +54,10 @@ export async function createReactConfig(enable?: boolean, reactNative?: boolean)
         // react refresh
         'react-refresh/only-export-components': ['warn', { allowConstantExport: isAllowConstantExport }],
 
-        ...pluginReact.configs.recommended.rules
+        ...pluginReact.configs.recommended.rules,
+        // react runtime
+        'react/react-in-jsx-scope': 'off',
+        'react/jsx-uses-react': 'off'
       }
     }
   ];

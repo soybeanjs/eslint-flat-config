@@ -70,3 +70,13 @@ declare module 'eslint-plugin-react-native' {
 
   export default plugin;
 }
+
+declare module 'eslint-plugin-solid' {
+  type SolidConfigKey = 'recommended' | 'typescript';
+
+  const plugin: import('eslint').ESLint.Plugin & {
+    configs: Record<SolidConfigKey, import('eslint').ESLint.ConfigData>;
+  };
+
+  export default plugin;
+}

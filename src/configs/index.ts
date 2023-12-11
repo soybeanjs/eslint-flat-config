@@ -6,5 +6,6 @@ export * from './unicorn';
 export * from './typescript';
 export * from './vue';
 export * from './react';
+export * from './solid';
 export * from './prettier';
 export * from './formatter';
