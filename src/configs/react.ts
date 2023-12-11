@@ -4,7 +4,7 @@ import { ensurePackages, interopDefault } from '../shared';
 import { GLOB_JSX, GLOB_TSX } from '../constants/glob';
 
 export async function createReactConfig(enable?: boolean, reactNative?: boolean) {
-  if (!enable) return [];
+  if (!enable && !reactNative) return [];
 
   await ensurePackages(['eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-react-refresh']);
   if (reactNative) {
