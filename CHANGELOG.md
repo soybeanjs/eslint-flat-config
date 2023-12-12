@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [v1.1.0-beta.3](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0-beta.2...v1.1.0-beta.3) (23-12-12)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: svelte, astro config &nbsp;-&nbsp; by @honghuangdc [<samp>(cb74f)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/cb74fef)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **projects**: update tsup.config.ts &nbsp;-&nbsp; by @honghuangdc [<samp>(a14d0)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/a14d0ef)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.0-beta.2](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0-beta.1...v1.1.0-beta.2) (23-12-11)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
