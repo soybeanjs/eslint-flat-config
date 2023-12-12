@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [v1.1.0-beta.4](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0-beta.3...v1.1.0-beta.4) (23-12-12)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: react, react-native, solid support custom files &nbsp;-&nbsp; by @honghuangdc [<samp>(c4836)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/c4836f3)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.0-beta.3](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0-beta.2...v1.1.0-beta.3) (23-12-12)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
