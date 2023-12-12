@@ -5,8 +5,21 @@ export default defineConfig({
   clean: true,
   dts: true,
   format: ['cjs', 'esm'],
-  external: ['eslint-plugin-vue', 'vue-eslint-parser', 'prettier-plugin-toml', '@toml-tools/parser'],
-  shims: true,
+  external: [
+    'eslint-plugin-vue',
+    'vue-eslint-parser',
+    'eslint-plugin-react',
+    'eslint-plugin-react-hooks',
+    'eslint-plugin-react-refresh',
+    'eslint-plugin-react-native',
+    'eslint-plugin-solid',
+    'eslint-plugin-svelte',
+    'prettier-plugin-svelte',
+    'prettier-plugin-toml',
+    '@toml-tools/parser',
+    'eslint-plugin-astro',
+    'prettier-plugin-astro'
+  ],
   sourcemap: false,
   target: 'node14',
   minify: false
