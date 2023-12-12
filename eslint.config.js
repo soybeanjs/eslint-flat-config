@@ -9,8 +9,8 @@ const { defineConfig } = require('./src/index.ts');
 export default defineConfig(
   {
     vue: true,
-    react: false,
-    solid: true,
+    react: { files: ['**/*react.tsx'] },
+    solid: { files: ['**/*solid.tsx'] },
     svelte: true,
     astro: true,
     formatter: {
