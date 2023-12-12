@@ -15,10 +15,12 @@ export default defineConfig({
     'eslint-plugin-solid',
     'eslint-plugin-svelte',
     'prettier-plugin-svelte',
-    'prettier-plugin-toml',
-    '@toml-tools/parser',
+    'svelte-eslint-parser',
     'eslint-plugin-astro',
-    'prettier-plugin-astro'
+    'astro-eslint-parser',
+    'prettier-plugin-astro',
+    'prettier-plugin-toml',
+    '@toml-tools/parser'
   ],
   sourcemap: false,
   target: 'node14',
