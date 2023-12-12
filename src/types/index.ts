@@ -127,19 +127,30 @@ export interface PrettierLanguageRules extends PrettierRules, Partial<JsdocOptio
 
 export type LintJSFramework = 'vue' | 'react' | 'react-native' | 'solid' | 'svelte' | 'astro';
 
-export interface VueOption {
-  /**
-   * The vue version
-   *
-   * @default 3
-   */
-  version?: 2 | 3;
-}
+export type JsxFramework = Extract<LintJSFramework, 'react' | 'react-native' | 'solid'>;
+
+export type VueOption =
+  | {
+      /**
+       * The vue version
+       *
+       * @default 3
+       */
+      version?: 2 | 3;
+    }
+  | boolean;
+
+export type JsxFrameworkOption =
+  | {
+      /** The glob patterns to lint */
+      files?: string[];
+    }
+  | boolean;
 
 type LintJSFrameworkOption = {
-  /** If true, the default vue version is 3 */
-  vue?: boolean | VueOption;
-} & Partial<Record<LintJSFramework, boolean>>;
+  vue?: VueOption;
+} & Partial<Record<JsxFramework, JsxFrameworkOption>> &
+  Partial<Record<Exclude<LintJSFramework, 'vue' | JsxFramework>, boolean>>;
 
 export interface Option extends LintJSFrameworkOption {
   /**

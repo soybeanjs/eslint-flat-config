@@ -1,9 +1,16 @@
 import type { FlatESLintConfig } from 'eslint-define-config';
 import { ensurePackages, interopDefault } from '../shared';
 import { GLOB_JSX, GLOB_TSX } from '../constants/glob';
+import type { Option } from '../types';
 
-export async function createSolidConfig(enable?: boolean) {
-  if (!enable) return [];
+export async function createSolidConfig(options?: Option['solid']) {
+  if (!options) return [];
+
+  let files: string[] = [GLOB_JSX, GLOB_TSX];
+
+  if (typeof options === 'object' && options.files?.length) {
+    files = options.files;
+  }
 
   await ensurePackages(['eslint-plugin-solid']);
 
@@ -16,7 +23,7 @@ export async function createSolidConfig(enable?: boolean) {
       }
     },
     {
-      files: [GLOB_JSX, GLOB_TSX],
+      files,
       languageOptions: {
         parserOptions: {
           ecmaFeatures: {

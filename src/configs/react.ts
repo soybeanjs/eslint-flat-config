@@ -2,14 +2,12 @@ import type { FlatESLintConfig } from 'eslint-define-config';
 import { isPackageExists } from 'local-pkg';
 import { ensurePackages, interopDefault } from '../shared';
 import { GLOB_JSX, GLOB_TSX } from '../constants/glob';
+import type { Option } from '../types';
 
-export async function createReactConfig(enable?: boolean, reactNative?: boolean) {
-  if (!enable && !reactNative) return [];
+export async function createReactConfig(options?: Option['react'], rnOptions?: Option['react-native']) {
+  if (!options && !rnOptions) return [];
 
   await ensurePackages(['eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-react-refresh']);
-  if (reactNative) {
-    await ensurePackages(['eslint-plugin-react-native']);
-  }
 
   const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all([
     interopDefault(import('eslint-plugin-react')),
@@ -22,7 +20,11 @@ export async function createReactConfig(enable?: boolean, reactNative?: boolean)
 
   const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some(i => isPackageExists(i));
 
-  const files = [GLOB_JSX, GLOB_TSX];
+  let files = [GLOB_JSX, GLOB_TSX];
+
+  if (typeof options === 'object' && options.files?.length) {
+    files = options.files;
+  }
 
   const configs: FlatESLintConfig[] = [
     {
@@ -62,7 +64,15 @@ export async function createReactConfig(enable?: boolean, reactNative?: boolean)
     }
   ];
 
-  if (reactNative) {
+  if (rnOptions) {
+    let rnFiles = [GLOB_JSX, GLOB_TSX];
+
+    if (typeof rnOptions === 'object' && rnOptions.files?.length) {
+      rnFiles = rnOptions.files;
+    }
+
+    await ensurePackages(['eslint-plugin-react-native']);
+
     const pluginReactNative = await interopDefault(import('eslint-plugin-react-native'));
 
     const reactNativeConfig: FlatESLintConfig[] = [
@@ -72,7 +82,7 @@ export async function createReactConfig(enable?: boolean, reactNative?: boolean)
         }
       },
       {
-        files,
+        files: rnFiles,
         languageOptions: {
           parserOptions: {
             ecmaFeatures: {
