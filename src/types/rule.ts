@@ -42,17 +42,12 @@ export type FlatConfigItem = Omit<FlatESLintConfigItem<EslintFlatRules, false>, 
   plugins?: Record<string, any>;
 };
 
-type WithFiles<T> = T & {
+export type RuleBaseOptions<T = NonNullable<unknown>> = T & {
   /** The glob patterns to lint */
   files?: string[];
-};
-
-type WithOverrides<T> = T & {
   /** Override rules */
   overrides?: PartialEslintFlatRules;
 };
-
-export type RuleBaseOptions<T = NonNullable<unknown>> = WithFiles<T> & WithOverrides<T>;
 
 export type RequiredRuleBaseOptions = Required<RuleBaseOptions>;
 
