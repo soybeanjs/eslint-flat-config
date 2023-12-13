@@ -1,6 +1,22 @@
 # Changelog
 
 
+## [v1.1.0](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0-beta.5...v1.1.0) (23-12-14)
+
+### &nbsp;&nbsp;&nbsp;💅 Refactors
+
+- **projects**:
+  - refactor rule type &nbsp;-&nbsp; by @honghuangdc [<samp>(3a3bc)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/3a3bce0)
+  - refactor complete: options and types &nbsp;-&nbsp; by @honghuangdc [<samp>(e5612)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/e561263)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **deps**: update deps &nbsp;-&nbsp; by @honghuangdc [<samp>(c2d71)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/c2d7175)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.0-beta.5](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0-beta.4...v1.1.0-beta.5) (23-12-12)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
