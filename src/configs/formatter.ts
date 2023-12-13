@@ -1,4 +1,3 @@
-import type { FlatESLintConfig } from 'eslint-define-config';
 import {
   GLOB_CSS,
   GLOB_HTML,
@@ -13,11 +12,11 @@ import {
   GLOB_YAML
 } from '../constants/glob';
 import { ensurePackages, interopDefault } from '../shared';
-import type { Option, PrettierLanguageRules, PrettierParser } from '../types';
+import type { FlatConfigItem, Options, PartialPrettierExtendedOptions, PrettierParser } from '../types';
 
 export async function createFormatterConfig(
-  options?: Option['formatter'],
-  prettierRules: Partial<PrettierLanguageRules> = {}
+  options?: Options['formatter'],
+  prettierRules: PartialPrettierExtendedOptions = {}
 ) {
   const { html = true, css = true, json = true, markdown, yaml, toml } = options || {};
 
@@ -27,7 +26,7 @@ export async function createFormatterConfig(
   ]);
 
   function createPrettierFormatter(files: string[], parser: PrettierParser, plugins?: string[]) {
-    const rules: Partial<PrettierLanguageRules> = {
+    const rules: PartialPrettierExtendedOptions = {
       ...prettierRules,
       parser
     };
@@ -36,7 +35,7 @@ export async function createFormatterConfig(
       rules.plugins = [...(rules.plugins || []), ...plugins];
     }
 
-    const config: FlatESLintConfig = {
+    const config: FlatConfigItem = {
       files,
       languageOptions: {
         parser: parserPlain
@@ -52,7 +51,7 @@ export async function createFormatterConfig(
     return config;
   }
 
-  const configs: FlatESLintConfig[] = [];
+  const configs: FlatConfigItem[] = [];
 
   if (css) {
     const cssConfig = createPrettierFormatter([GLOB_CSS, GLOB_POSTCSS], 'css');

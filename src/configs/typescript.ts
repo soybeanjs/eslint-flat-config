@@ -1,12 +1,11 @@
-import type { ESLint } from 'eslint';
-import type { FlatESLintConfig, Rules } from 'eslint-define-config';
 import { interopDefault } from '../shared';
 import { GLOB_TS, GLOB_TSX } from '../constants/glob';
+import type { FlatConfigItem } from '../types';
 
-export async function createTsRules() {
+export async function createTsRules(): Promise<FlatConfigItem['rules']> {
   const pluginTs = await interopDefault(import('@typescript-eslint/eslint-plugin'));
 
-  const tsRules: Partial<Rules> = {
+  const tsRules = {
     ...pluginTs.configs.base.rules,
     ...pluginTs.configs['eslint-recommended'].rules,
     ...pluginTs.configs.strict.rules,
@@ -43,7 +42,7 @@ export async function createTsRules() {
     '@typescript-eslint/unified-signatures': 'off'
   };
 
-  return tsRules;
+  return tsRules as unknown as FlatConfigItem['rules'];
 }
 
 export async function createTsConfig() {
@@ -54,7 +53,7 @@ export async function createTsConfig() {
 
   const tsRules = await createTsRules();
 
-  const ts: FlatESLintConfig[] = [
+  const ts: FlatConfigItem[] = [
     {
       files: [GLOB_TS, GLOB_TSX],
       languageOptions: {
@@ -64,7 +63,7 @@ export async function createTsConfig() {
         }
       },
       plugins: {
-        '@typescript-eslint': pluginTs as unknown as ESLint.Plugin
+        '@typescript-eslint': pluginTs
       },
       rules: {
         ...tsRules

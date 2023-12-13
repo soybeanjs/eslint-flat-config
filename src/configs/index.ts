@@ -1,4 +1,3 @@
-export * from './ignore';
 export * from './javascript';
 export * from './node';
 export * from './import';

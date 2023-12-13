@@ -1,17 +1,11 @@
-import type { FlatESLintConfig } from 'eslint-define-config';
 import { ensurePackages, interopDefault } from '../shared';
-import { GLOB_VUE } from '../constants/glob';
-import type { Option, VueOption } from '../types';
+import type { FlatConfigItem, RequiredVueOptions } from '../types';
 import { createTsRules } from './typescript';
 
-export async function createVueConfig(options?: Option['vue']) {
+export async function createVueConfig(options?: RequiredVueOptions) {
   if (!options) return [];
 
-  const DEFAULT_VUE_OPTION: VueOption = {
-    version: 3
-  };
-
-  const vueOption = typeof options === 'boolean' ? DEFAULT_VUE_OPTION : options;
+  const { version, files, overrides } = options;
 
   await ensurePackages(['eslint-plugin-vue', 'vue-eslint-parser']);
 
@@ -26,7 +20,7 @@ export async function createVueConfig(options?: Option['vue']) {
   const tsRules = await createTsRules();
 
   const configKeys: VueConfigKey[] =
-    vueOption.version === 3
+    version === 3
       ? ['vue3-essential', 'vue3-strongly-recommended', 'vue3-recommended']
       : ['essential', 'strongly-recommended', 'recommended'];
 
@@ -38,14 +32,14 @@ export async function createVueConfig(options?: Option['vue']) {
     };
   }, {});
 
-  const configs: FlatESLintConfig[] = [
+  const configs: FlatConfigItem[] = [
     {
       plugins: {
         vue: pluginVue
       }
     },
     {
-      files: [GLOB_VUE],
+      files,
       languageOptions: {
         parser: parserVue,
         parserOptions: {
@@ -59,7 +53,7 @@ export async function createVueConfig(options?: Option['vue']) {
       },
       processor: pluginVue.processors!['.vue'],
       plugins: {
-        '@typescript-eslint': pluginTs as any
+        '@typescript-eslint': pluginTs
       },
       rules: {
         ...tsRules,
@@ -74,7 +68,7 @@ export async function createVueConfig(options?: Option['vue']) {
         ],
         'vue/component-options-name-casing': ['warn', 'PascalCase'],
         'vue/custom-event-name-casing': ['warn', 'camelCase'],
-        'vue/define-emits-declaration': ['warn', 'type-literal'],
+        'vue/define-emits-declaration': ['warn', 'type-based'],
         'vue/define-macros-order': [
           'warn',
           {
@@ -116,7 +110,8 @@ export async function createVueConfig(options?: Option['vue']) {
             useAttrs: 'attrs'
           }
         ],
-        'vue/valid-define-options': 'warn'
+        'vue/valid-define-options': 'warn',
+        ...overrides
       }
     }
   ];

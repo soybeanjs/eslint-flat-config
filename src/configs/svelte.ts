@@ -1,11 +1,14 @@
-import type { FlatESLintConfig, Rules } from 'eslint-define-config';
 import { ensurePackages, interopDefault } from '../shared';
-import { GLOB_SVELTE } from '../constants/glob';
-import type { PrettierLanguageRules } from '../types';
+import type { FlatConfigItem, PartialPrettierExtendedOptions, RequiredRuleBaseOptions } from '../types';
 import { createTsRules } from './typescript';
 
-export async function createSvelteConfig(enable?: boolean, prettierRules: Partial<PrettierLanguageRules> = {}) {
-  if (!enable) return [];
+export async function createSvelteConfig(
+  options?: RequiredRuleBaseOptions,
+  prettierRules: PartialPrettierExtendedOptions = {}
+) {
+  if (!options) return [];
+
+  const { files, overrides } = options;
 
   await ensurePackages(['eslint-plugin-svelte', 'svelte-eslint-parser', 'prettier-plugin-svelte']);
 
@@ -20,14 +23,14 @@ export async function createSvelteConfig(enable?: boolean, prettierRules: Partia
 
   const { plugins = [] } = prettierRules;
 
-  const pRules: Partial<PrettierLanguageRules> = {
+  const pRules: PartialPrettierExtendedOptions = {
     ...prettierRules,
     plugins: plugins.concat('prettier-plugin-svelte')
   };
 
-  const configs: FlatESLintConfig[] = [
+  const configs: FlatConfigItem[] = [
     {
-      files: [GLOB_SVELTE],
+      files,
       languageOptions: {
         parser: parserSvelte,
         parserOptions: {
@@ -37,14 +40,15 @@ export async function createSvelteConfig(enable?: boolean, prettierRules: Partia
         }
       },
       plugins: {
-        '@typescript-eslint': pluginTs as any,
-        svelte: pluginSvelte as any,
+        '@typescript-eslint': pluginTs,
+        svelte: pluginSvelte,
         prettier: pluginPrettier
       },
       processor: pluginSvelte.processors.svelte,
       rules: {
         ...tsRules,
-        ...(pluginSvelte.configs.recommended.rules as Partial<Rules>),
+        ...(pluginSvelte.configs.recommended.rules as FlatConfigItem['rules']),
+        ...overrides,
         'prettier/prettier': [
           'warn',
           {

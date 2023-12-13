@@ -124,7 +124,6 @@
     "@toml-tools/parser": "1.0.0",
     "@types/eslint": "8.44.8",
     "@types/eslint-config-prettier": "6.11.3",
-    "@types/eslint__eslintrc": "2.1.1",
     "@types/eslint__js": "8.42.3",
     "@types/node": "20.10.4",
     "@types/prompts": "2.4.9",

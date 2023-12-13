@@ -6,6 +6,7 @@ export default defineConfig({
   dts: true,
   format: ['cjs', 'esm'],
   external: [
+    '@antfu/eslint-define-config',
     'eslint-plugin-vue',
     'vue-eslint-parser',
     'eslint-plugin-react',
@@ -24,5 +25,6 @@ export default defineConfig({
   ],
   sourcemap: false,
   target: 'node14',
-  minify: false
+  minify: false,
+  shims: true
 });

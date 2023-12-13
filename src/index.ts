@@ -1,28 +1,28 @@
-import process from 'node:process';
-import type { FlatESLintConfig } from 'eslint-define-config';
-import { DEFAULT_PRETTIER_RULES } from './constants/prettier';
 import {
   createAstroConfig,
   createFormatterConfig,
-  createIgnoreConfig,
   createImportConfig,
   createJsConfig,
   createNodeConfig,
   createPrettierConfig,
   createReactConfig,
+  createReactNativeConfig,
   createSolidConfig,
   createSvelteConfig,
   createTsConfig,
   createUnicornConfig,
   createVueConfig
 } from './configs';
-import { loadPrettierConfig } from './shared';
-import type { Awaitable, Option } from './types';
+import { createOptions } from './options';
+import type { Awaitable, FlatConfigItem, Options } from './types';
 
-export async function defineConfig(options: Partial<Option> = {}, ...userConfigs: Awaitable<FlatESLintConfig>[]) {
+export async function defineConfig(options: Partial<Options> = {}, ...userConfigs: Awaitable<FlatConfigItem>[]) {
   const opts = await createOptions(options);
 
-  const ignore = createIgnoreConfig(options.ignores);
+  const ignore: FlatConfigItem = {
+    ignores: opts.ignores
+  };
+
   const js = createJsConfig();
   const node = await createNodeConfig();
   const imp = await createImportConfig();
@@ -30,15 +30,17 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
   const ts = await createTsConfig();
   const vue = await createVueConfig(opts.vue);
   const solid = await createSolidConfig(opts.solid);
-  const react = await createReactConfig(opts.react, opts['react-native']);
+  const react = await createReactConfig(opts.react);
+  const reactNative = await createReactNativeConfig(opts['react-native']);
   const svelte = await createSvelteConfig(opts.svelte, opts.prettierRules);
   const astro = await createAstroConfig(opts.astro);
   const prettier = await createPrettierConfig(opts.prettierRules);
   const formatter = await createFormatterConfig(opts.formatter, opts.prettierRules);
+
   const userResolved = await Promise.all(userConfigs);
 
-  const configs: FlatESLintConfig[] = [
-    ...ignore,
+  const configs: FlatConfigItem[] = [
+    ignore,
     ...js,
     ...node,
     ...imp,
@@ -46,6 +48,7 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
     ...ts,
     ...vue,
     ...react,
+    ...reactNative,
     ...solid,
     ...astro,
     ...svelte,
@@ -57,45 +60,4 @@ export async function defineConfig(options: Partial<Option> = {}, ...userConfigs
   return configs;
 }
 
-async function createOptions(options: Partial<Option> = {}) {
-  const opts: Option = {
-    cwd: process.cwd(),
-    ignores: [],
-    prettierRules: {
-      ...DEFAULT_PRETTIER_RULES
-    },
-    usePrettierrc: true,
-    formatter: {
-      html: true,
-      css: true,
-      json: true
-    }
-  };
-
-  const { cwd, prettierRules, usePrettierrc, formatter, ...rest } = options;
-
-  if (cwd) {
-    opts.cwd = cwd;
-  }
-
-  if (prettierRules) {
-    opts.prettierRules = prettierRules;
-  }
-
-  if (usePrettierrc !== undefined) {
-    opts.usePrettierrc = usePrettierrc;
-  }
-
-  if (opts.usePrettierrc) {
-    const prettierConfig = await loadPrettierConfig(opts.cwd);
-    Object.assign(opts.prettierRules, prettierConfig);
-  }
-
-  if (formatter) {
-    Object.assign(opts.formatter, formatter);
-  }
-
-  Object.assign(opts, rest);
-
-  return opts;
-}
+export * from './types';

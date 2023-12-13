@@ -1,11 +1,11 @@
-import type { FlatESLintConfig } from 'eslint-define-config';
 import { isPackageExists } from 'local-pkg';
 import { ensurePackages, interopDefault } from '../shared';
-import { GLOB_JSX, GLOB_TSX } from '../constants/glob';
-import type { Option } from '../types';
+import type { FlatConfigItem, RequiredRuleBaseOptions } from '../types';
 
-export async function createReactConfig(options?: Option['react'], rnOptions?: Option['react-native']) {
-  if (!options && !rnOptions) return [];
+export async function createReactConfig(options?: RequiredRuleBaseOptions) {
+  if (!options) return [];
+
+  const { files, overrides } = options;
 
   await ensurePackages(['eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-react-refresh']);
 
@@ -20,13 +20,7 @@ export async function createReactConfig(options?: Option['react'], rnOptions?: O
 
   const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some(i => isPackageExists(i));
 
-  let files = [GLOB_JSX, GLOB_TSX];
-
-  if (typeof options === 'object' && options.files?.length) {
-    files = options.files;
-  }
-
-  const configs: FlatESLintConfig[] = [
+  const configs: FlatConfigItem[] = [
     {
       plugins: {
         react: pluginReact,
@@ -59,48 +53,48 @@ export async function createReactConfig(options?: Option['react'], rnOptions?: O
         ...pluginReact.configs.recommended.rules,
         // react runtime
         'react/react-in-jsx-scope': 'off',
-        'react/jsx-uses-react': 'off'
+        'react/jsx-uses-react': 'off',
+        ...overrides
       }
     }
   ];
 
-  if (rnOptions) {
-    let rnFiles = [GLOB_JSX, GLOB_TSX];
+  return configs;
+}
 
-    if (typeof rnOptions === 'object' && rnOptions.files?.length) {
-      rnFiles = rnOptions.files;
-    }
+export async function createReactNativeConfig(options?: RequiredRuleBaseOptions) {
+  if (!options) return [];
 
-    await ensurePackages(['eslint-plugin-react-native']);
+  const { files, overrides } = options;
 
-    const pluginReactNative = await interopDefault(import('eslint-plugin-react-native'));
+  await ensurePackages(['eslint-plugin-react-native']);
 
-    const reactNativeConfig: FlatESLintConfig[] = [
-      {
-        plugins: {
-          'react-native': pluginReactNative
-        }
-      },
-      {
-        files: rnFiles,
-        languageOptions: {
-          parserOptions: {
-            ecmaFeatures: {
-              jsx: true
-            }
-          },
-          globals: {
-            ...pluginReactNative.environments['react-native'].globals
+  const pluginReactNative = await interopDefault(import('eslint-plugin-react-native'));
+
+  const config: FlatConfigItem[] = [
+    {
+      plugins: {
+        'react-native': pluginReactNative
+      }
+    },
+    {
+      files,
+      languageOptions: {
+        parserOptions: {
+          ecmaFeatures: {
+            jsx: true
           }
         },
-        rules: {
-          ...pluginReactNative.configs.all.rules
+        globals: {
+          ...pluginReactNative.environments['react-native'].globals
         }
+      },
+      rules: {
+        ...pluginReactNative.configs.all.rules,
+        ...overrides
       }
-    ];
+    }
+  ];
 
-    configs.push(...reactNativeConfig);
-  }
-
-  return configs;
+  return config;
 }

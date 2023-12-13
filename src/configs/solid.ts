@@ -1,22 +1,16 @@
-import type { FlatESLintConfig } from 'eslint-define-config';
 import { ensurePackages, interopDefault } from '../shared';
-import { GLOB_JSX, GLOB_TSX } from '../constants/glob';
-import type { Option } from '../types';
+import type { FlatConfigItem, RequiredRuleBaseOptions } from '../types';
 
-export async function createSolidConfig(options?: Option['solid']) {
+export async function createSolidConfig(options?: RequiredRuleBaseOptions) {
   if (!options) return [];
 
-  let files: string[] = [GLOB_JSX, GLOB_TSX];
-
-  if (typeof options === 'object' && options.files?.length) {
-    files = options.files;
-  }
+  const { files, overrides } = options;
 
   await ensurePackages(['eslint-plugin-solid']);
 
   const pluginSolid = await interopDefault(import('eslint-plugin-solid'));
 
-  const configs: FlatESLintConfig[] = [
+  const configs: FlatConfigItem[] = [
     {
       plugins: {
         solid: pluginSolid
@@ -32,7 +26,8 @@ export async function createSolidConfig(options?: Option['solid']) {
         }
       },
       rules: {
-        ...pluginSolid.configs.typescript.rules
+        ...pluginSolid.configs.typescript.rules,
+        ...overrides
       }
     }
   ];

@@ -2,7 +2,7 @@ import process from 'node:process';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { isPackageExists } from 'local-pkg';
-import type { Awaitable, PrettierLanguageRules } from '../types';
+import type { Awaitable, PartialPrettierExtendedOptions } from '../types';
 
 export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { default: infer U } ? U : T> {
   const resolved = await m;
@@ -36,7 +36,7 @@ export async function ensurePackages(packages: string[]) {
 }
 
 export async function loadPrettierConfig(cwd: string) {
-  let prettierConfig: Partial<PrettierLanguageRules> = {};
+  let prettierConfig: PartialPrettierExtendedOptions = {};
 
   try {
     const prettierrc = await readFile(path.join(cwd, '.prettierrc'), 'utf-8');

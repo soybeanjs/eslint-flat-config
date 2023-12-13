@@ -1,10 +1,10 @@
 import globals from 'globals';
 import jsRules from '@eslint/js';
-import type { FlatESLintConfig } from 'eslint-define-config';
 import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TESTS } from '../constants/glob';
+import type { FlatConfigItem } from '../types';
 
 export function createJsConfig() {
-  const js: FlatESLintConfig[] = [
+  const js: FlatConfigItem[] = [
     {
       languageOptions: {
         ecmaVersion: 2022,

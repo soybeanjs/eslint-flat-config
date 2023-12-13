@@ -1,11 +1,14 @@
-import type { FlatESLintConfig, Rules } from 'eslint-define-config';
 import { ensurePackages, interopDefault } from '../shared';
-import { GLOB_ASTRO } from '../constants/glob';
-import type { PrettierLanguageRules } from '../types';
+import type { FlatConfigItem, PartialPrettierExtendedOptions, RequiredRuleBaseOptions } from '../types';
 import { createTsRules } from './typescript';
 
-export async function createAstroConfig(enable?: boolean, prettierRules: Partial<PrettierLanguageRules> = {}) {
-  if (!enable) return [];
+export async function createAstroConfig(
+  options?: RequiredRuleBaseOptions,
+  prettierRules: PartialPrettierExtendedOptions = {}
+) {
+  if (!options) return [];
+
+  const { files, overrides } = options;
 
   await ensurePackages(['eslint-plugin-astro', 'astro-eslint-parser', 'prettier-plugin-astro']);
 
@@ -20,14 +23,14 @@ export async function createAstroConfig(enable?: boolean, prettierRules: Partial
 
   const { plugins = [] } = prettierRules;
 
-  const pRules: Partial<PrettierLanguageRules> = {
+  const pRules: PartialPrettierExtendedOptions = {
     ...prettierRules,
     plugins: plugins.concat('prettier-plugin-astro')
   };
 
-  const configs: FlatESLintConfig[] = [
+  const configs: FlatConfigItem[] = [
     {
-      files: [GLOB_ASTRO],
+      files,
       languageOptions: {
         parser: parserAstro,
         parserOptions: {
@@ -37,14 +40,15 @@ export async function createAstroConfig(enable?: boolean, prettierRules: Partial
         }
       },
       plugins: {
-        '@typescript-eslint': pluginTs as any,
-        astro: pluginAstro as any,
+        '@typescript-eslint': pluginTs,
+        astro: pluginAstro,
         prettier: pluginPrettier
       },
       processor: pluginAstro.processors.astro,
       rules: {
         ...tsRules,
-        ...(pluginAstro.configs.recommended.rules as Partial<Rules>),
+        ...(pluginAstro.configs.recommended.rules as FlatConfigItem['rules']),
+        ...overrides,
         'prettier/prettier': [
           'warn',
           {

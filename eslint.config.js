@@ -4,11 +4,11 @@ import { defineConfig as defineConfig2 } from './dist/index.js';
 
 const require = createRequire(import.meta.url);
 
-/** @type {{ defineConfig: import('./src/index.ts').defineConfig }} */
 const { defineConfig: defineConfig1 } = require('./src/index.ts');
 
 const useBuild = true;
 
+/** @type {import('./src/index.ts').defineConfig} */
 const defineConfig = useBuild ? defineConfig2 : defineConfig1;
 
 export default defineConfig(
@@ -20,6 +20,8 @@ export default defineConfig(
     astro: true,
     formatter: {
       html: true,
+      css: true,
+      json: true,
       markdown: true,
       yaml: true,
       toml: true

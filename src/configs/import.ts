@@ -1,10 +1,10 @@
-import type { FlatESLintConfig } from 'eslint-define-config';
+import type { FlatConfigItem } from '../types';
 import { interopDefault } from '../shared';
 
 export async function createImportConfig() {
   const pluginImport = await interopDefault(import('eslint-plugin-i'));
 
-  const configs: FlatESLintConfig[] = [
+  const configs: FlatConfigItem[] = [
     {
       plugins: {
         import: pluginImport

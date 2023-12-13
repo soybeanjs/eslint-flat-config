@@ -1,22 +1,21 @@
 import prettierRules from 'eslint-config-prettier';
-import type { FlatESLintConfig } from 'eslint-define-config';
 import { GLOB_PRETTIER_LINT } from '../constants/glob';
 import { interopDefault } from '../shared';
-import type { PrettierLanguageRules } from '../types';
+import type { FlatConfigItem, PartialPrettierExtendedOptions } from '../types';
 
 const { rules: eslintRules } = prettierRules;
 
-export async function createPrettierConfig(rules: Partial<PrettierLanguageRules>) {
+export async function createPrettierConfig(rules: PartialPrettierExtendedOptions) {
   const pluginPrettier = await interopDefault(import('eslint-plugin-prettier'));
 
   const { plugins = [] } = rules;
 
-  const pRules: Partial<PrettierLanguageRules> = {
+  const pRules: PartialPrettierExtendedOptions = {
     ...rules,
     plugins: plugins.concat('prettier-plugin-jsdoc')
   };
 
-  const configs: FlatESLintConfig[] = [
+  const configs: FlatConfigItem[] = [
     {
       files: GLOB_PRETTIER_LINT,
       plugins: {

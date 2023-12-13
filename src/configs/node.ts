@@ -1,10 +1,10 @@
-import type { FlatESLintConfig } from 'eslint-define-config';
 import { interopDefault } from '../shared';
+import type { FlatConfigItem } from '../types';
 
 export async function createNodeConfig() {
   const pluginNode = await interopDefault(import('eslint-plugin-n'));
 
-  const configs: FlatESLintConfig[] = [
+  const configs: FlatConfigItem[] = [
     {
       plugins: {
         n: pluginNode
