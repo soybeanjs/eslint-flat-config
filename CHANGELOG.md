@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [v1.1.1](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0...v1.1.1) (23-12-14)
+
+### &nbsp;&nbsp;&nbsp;📖 Documentation
+
+- **projects**: update README.md &nbsp;-&nbsp; by @honghuangdc [<samp>(c4ecc)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/c4ecc6d)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **projects**: update package.json &nbsp;-&nbsp; by @honghuangdc [<samp>(7d58a)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/7d58a97)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.0](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.0-beta.5...v1.1.0) (23-12-14)
 
 ### &nbsp;&nbsp;&nbsp;💅 Refactors
