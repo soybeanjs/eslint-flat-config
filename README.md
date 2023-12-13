@@ -4,8 +4,8 @@
 - Support Vue, React, ReactNative, Solid, Svelte and Astro on demand.
 - Use ESlint and Prettier to format HTML, CSS, LESS, SCSS, JSON, JSONC, YAML, TOML, Markdown.
 
-> [!WARNING]
-> ESlint will use new flat config when version 1.0.0 released.
+> [!IMPORTANT]
+> ESlint will use new flat config by default when release v10.0.0, It's recommended to use flat config.
 
 ## Usage
 
@@ -32,7 +32,7 @@ export default defineConfig({
 ```
 
 > [!NOTE]
-> See [Options](##Options) for more details.
+> See [Options](#options) for more details.
 
 ### ESLint settings in VSCode
 
