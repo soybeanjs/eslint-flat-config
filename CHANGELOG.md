@@ -1,6 +1,22 @@
 # Changelog
 
 
+## [v1.1.3](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.2...v1.1.3) (23-12-14)
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **projects**: fix ts config &nbsp;-&nbsp; by @honghuangdc [<samp>(69112)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/691125e)
+
+### &nbsp;&nbsp;&nbsp;📖 Documentation
+
+- **projects**:
+  - update README.md &nbsp;-&nbsp; by @honghuangdc [<samp>(b0e0e)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/b0e0ef0)
+  - update README.md &nbsp;-&nbsp; by @honghuangdc [<samp>(ecb45)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/ecb453f)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.2](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.1...v1.1.2) (23-12-14)
 
 ### &nbsp;&nbsp;&nbsp;📖 Documentation
