@@ -80,3 +80,9 @@ declare module 'eslint-plugin-solid' {
 
   export default plugin;
 }
+
+declare namespace Demo {
+  interface Person {
+    name: string;
+  }
+}

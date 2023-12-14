@@ -1,13 +1,15 @@
 import { interopDefault } from '../shared';
-import { GLOB_TS, GLOB_TSX } from '../constants/glob';
+import { GLOB_SRC } from '../constants/glob';
 import type { FlatConfigItem } from '../types';
 
 export async function createTsRules(): Promise<FlatConfigItem['rules']> {
   const pluginTs = await interopDefault(import('@typescript-eslint/eslint-plugin'));
 
+  const { rules: recommendedRules } = pluginTs.configs['eslint-recommended'].overrides![0];
+
   const tsRules = {
     ...pluginTs.configs.base.rules,
-    ...pluginTs.configs['eslint-recommended'].rules,
+    ...recommendedRules,
     ...pluginTs.configs.strict.rules,
     '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: false }],
     '@typescript-eslint/no-empty-interface': [
@@ -55,7 +57,7 @@ export async function createTsConfig() {
 
   const ts: FlatConfigItem[] = [
     {
-      files: [GLOB_TS, GLOB_TSX],
+      files: [GLOB_SRC],
       languageOptions: {
         parser: parserTs,
         parserOptions: {
