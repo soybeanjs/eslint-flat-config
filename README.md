@@ -5,7 +5,7 @@
 - Use ESlint and Prettier to format HTML, CSS, LESS, SCSS, JSON, JSONC, YAML, TOML, Markdown.
 
 > [!IMPORTANT]
-> ESlint will use new flat config by default when release v10.0.0, It's recommended to use flat config.
+> ESlint will use new flat config by default in next main version v9.0.0, It's recommended to use flat config. see more: [What's coming in ESLint v9.0.0](https://eslint.org/blog/2023/11/whats-coming-in-eslint-9.0.0/)
 
 ## Usage
 
