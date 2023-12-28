@@ -1,6 +1,21 @@
 # Changelog
 
 
+## [v1.1.4](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.3...v1.1.4) (23-12-28)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: change prettier-plugin-jsdoc default rule &nbsp;-&nbsp; by @honghuangdc [<samp>(7bc93)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/7bc93ab)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **deps**: update deps &nbsp;-&nbsp; by @honghuangdc [<samp>(a0bd7)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/a0bd784)
+- **projects**: update pnpm version &nbsp;-&nbsp; by @honghuangdc [<samp>(fa0a7)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/fa0a7c4)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.3](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.2...v1.1.3) (23-12-14)
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
