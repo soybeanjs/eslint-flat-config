@@ -5,5 +5,6 @@ export const DEFAULT_PRETTIER_RULES: PartialPrettierExtendedOptions = {
   singleQuote: true,
   trailingComma: 'none',
   arrowParens: 'avoid',
-  htmlWhitespaceSensitivity: 'ignore'
+  htmlWhitespaceSensitivity: 'ignore',
+  jsdocCapitalizeDescription: false
 };
