@@ -45,6 +45,7 @@ export function createJsConfig() {
         'no-console': 'warn',
         'no-duplicate-imports': 'off',
         'no-empty': ['error', { allowEmptyCatch: true }],
+        'no-empty-function': 'off',
         'no-inline-comments': 'off',
         'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
         'no-magic-numbers': 'off',
