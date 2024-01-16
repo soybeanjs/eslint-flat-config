@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [v1.1.6](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.5...v1.1.6) (24-01-16)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: turn off rule: no-empty-fucntion &nbsp;-&nbsp; by @honghuangdc [<samp>(f7452)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/f7452de)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **deps**: update deps &nbsp;-&nbsp; by @honghuangdc [<samp>(9b377)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/9b3770b)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.5-beta.0](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.4...v1.1.5-beta.0) (24-01-13)
 
 ### &nbsp;&nbsp;&nbsp;🏡 Chore
