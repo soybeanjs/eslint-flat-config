@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [v1.1.7](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.6...v1.1.7) (24-01-21)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **deps**: update deps &nbsp;-&nbsp; by @honghuangdc [<samp>(2c263)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/2c26317)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.6](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.5...v1.1.6) (24-01-16)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
