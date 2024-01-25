@@ -1,11 +1,11 @@
+> [!CAUTION]
+> This repository is moved to [@soybeanjs/eslint-config](https://github.com/soybeanjs/eslint-config)
+
 # SoybeanJS's ESLint flat config presets
 
 - Default config Lint JavaScript and TypeScript.
 - Support Vue, React, ReactNative, Solid, Svelte and Astro on demand.
 - Use ESlint and Prettier to format HTML, CSS, LESS, SCSS, JSON, JSONC, YAML, TOML, Markdown.
-
-> [!IMPORTANT]
-> ESlint will use new flat config by default in next major version v9.0.0, It's recommended to use flat config. see more: [What's coming in ESLint v9.0.0](https://eslint.org/blog/2023/11/whats-coming-in-eslint-9.0.0/)
 
 ## Usage
 
