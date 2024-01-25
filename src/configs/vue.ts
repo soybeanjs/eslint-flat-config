@@ -82,7 +82,6 @@ export async function createVueConfig(options?: RequiredVueOptions) {
         'vue/no-duplicate-attr-inheritance': 'warn',
         'vue/no-ref-object-reactivity-loss': 'error',
         'vue/no-required-prop-with-default': 'warn',
-        'vue/no-setup-props-reactivity-loss': 'error',
         'vue/no-static-inline-styles': 'warn',
         'vue/no-template-target-blank': 'error',
         'vue/no-this-in-before-route-enter': 'error',
