@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [v1.1.8](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.7...v1.1.8) (24-01-25)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **projects**: turn off vue/no-setup-props-reactivity-loss &nbsp;-&nbsp; by @honghuangdc [<samp>(b95c2)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/b95c2c5)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **deps**: update deps &nbsp;-&nbsp; by @honghuangdc [<samp>(ae2fd)</samp>](https://github.com/soybeanjs/eslint-flat-config/commit/ae2fd59)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![honghuangdc](https://github.com/honghuangdc.png?size=48)](https://github.com/honghuangdc)&nbsp;&nbsp;
+
 ## [v1.1.7](https://github.com/soybeanjs/eslint-flat-config/compare/v1.1.6...v1.1.7) (24-01-21)
 
 ### &nbsp;&nbsp;&nbsp;🏡 Chore
